@@ -29,6 +29,27 @@ $git commit -m "Message" => 快速提交檔案並表達這務commit目的。 一個 commit 在 Gi
 
 $ git log => 查過過去所有的commit記錄 ($ git log --stat => 可以查看更完整訊息 ; git log -p => 看到檔案更詳細的變更內容)
 
+$ git branch => 查看目前在哪個branch  /* git branch xxx => 建立xxx的branch */
+	$git checkout xxx => 切換到 xxxbranch (可利用分支，繼續開發)
+	$git merge xxx => 整理分支回主幹(線圖較醜); $ git rebase master => 以最後的master加上分支commit的內容(線圖較漂亮)
+		**merge當中可能會發生confict
+		  1.將發生 confict 的檔案打開，處理內容(必須刪除<<<、===、>>> )
+		  2.使用 $ git add 將處理好的檔案加入 stage。
+		  3.$ git commit 提交合併訊息。
+$ git reset => 取消上一次操作
+
+$ git reset HEAD <file> => 將這支檔案取消 stage
+
+$ git checkout -- <file> => 將檔案狀態回復到最新的一次 commit 時的狀態
+
+$ git commit --amend => 修改message。
+
+$ git reset --hard HEAD => HEAD參數可以變化 Ex: HEAD^ 回復上一個commit版本 ; HEAD~2 回復上兩個commit版本
+
+   ****git reset, hard 與 soft 的差異
+
+     使用 git reset 的時候都會看到一個 soft 或是 hard 的參數，這代表什麼樣的意義？基本上在使用 git reset 的時候，都會把目前狀態回復到你想回復的版本，但若是不加參數的情況，會把你做過的修改仍然保留，但是，若是加上 —soft 參數，則會把做過的修改加入 stage ，若是加上 hard 參數的話則是把做過的修改完全刪除，回到那個版本原本的樣子。
+
 ===================
 流程總整理 : 修改檔案 => git add => git commit -m => 修改其他檔案
 
