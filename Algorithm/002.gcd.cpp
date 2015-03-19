@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-int gcd(int a,int b){
+int gcd(const int &a, const int &b){
 	return a ? gcd(b%a, a) : b ;
 }
 
