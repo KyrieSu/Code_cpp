@@ -1,13 +1,13 @@
 #include<iostream>
-#include<string>	// string
+#include<string>	// string, getline()
 #include<cctype>	// isalpha()
-#include<sstream>	// istringstream
+#include<sstream>	// stringstream
 using namespace std ;
 
 int main(){
 	string input ;
 	while(getline(cin, input)){
-		istringstream f(input) ;
+		stringstream f(input) ;
 		string temp ;
 		int n = 0 ;
 		while(getline(f, temp, ' '))
