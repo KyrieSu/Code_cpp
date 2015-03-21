@@ -23,9 +23,7 @@ int main(){
 	}
 	
 	for(int j=0;j<i;j++)
-		cout<<endl<<array[j]<<endl;
-	
-   	
+		cout<<endl<<array[j]<<endl; 	
 	
 	
 	return 0;
