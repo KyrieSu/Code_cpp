@@ -9,7 +9,7 @@ int num,array[100];
 
 int main(){
 	cout<<"Enter 0 to end program"<<endl;
-	int keyin,i;
+	int i;
 	for(i=0;i>=0;i++){
 		num=0;
 		gets(str);
