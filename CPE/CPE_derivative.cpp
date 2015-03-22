@@ -5,13 +5,15 @@ using namespace std;
 
 struct data{
 	int x;
-	int cef[50]; /* a0,a1,....,an */
-	int pow[50]; 
+	int pow; 
+	data *next;
 };
 
 data *head,*now;
 
 int main(){
+	head->next=NULL;
+	now=head;
 	cout<<"Derivative the Polly polynomial"<<endl;
 	for(int i=0;i>=0;i++){
 		
