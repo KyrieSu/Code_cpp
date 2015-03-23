@@ -22,4 +22,6 @@ int main(){
 	pair<char, double> test4 ;
 	test4 = make_pair('a', 9.0) ;
 	printPair(test4) ;
+
+	printPair(make_pair("YA", 999)) ;
 }
