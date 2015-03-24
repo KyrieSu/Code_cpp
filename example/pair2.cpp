@@ -4,7 +4,7 @@
 using namespace std ;
 
 template<class T1, class T2>
-void printPair(pair<T1, T2> val){
+void printPair(const pair<T1, T2>& val){
 	cout << val.first << " " << val.second << endl ; 
 }
 
