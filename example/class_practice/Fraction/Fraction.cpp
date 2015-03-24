@@ -7,7 +7,7 @@ class Fraction{
 	public:
 		Fraction(int up, int down) ;		/* initialize				*/
 		string toString() ;					/* "up/down"				*/
-		int toInt() ;						/* interger part			*/
+		int toInt() ;						/* integer part				*/
 		int nearInt() ;						/* the nearest integer		*/
 		double toDouble() ;					/* similar value in double	*/
 		Fraction operator+(Fraction in) ;	/* add two fraction			*/
