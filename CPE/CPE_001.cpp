@@ -14,7 +14,7 @@ int main(){
 		cin>>arr[i];
 		sum+=arr[i];
 	}
-	int avg=sum/num; /* The index of Step[] */
+	int avg=sum/num; 
 	for(int i=0;i<num;i++){
 		if(arr[i]>avg)
 			step[total]+=(arr[i]-avg);
