@@ -1,7 +1,7 @@
 Things  To  Do
 ==============
-map example
-set example
+- map example
+- set example
 
 Websites
 ========
