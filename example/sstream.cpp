@@ -10,9 +10,9 @@ int main(){
 
 	// initialize string by string stream
 	string s1 = ss1.str() ;
-	cout << s1 << endl ;
+	cout << s1 << endl ;  // 1500
 
 	// erase first char
 	s1.erase(s1.begin()) ;
-	cout << s1 << endl ;
+	cout << s1 << endl ;  // 500
 }
