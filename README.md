@@ -2,6 +2,7 @@ Things  To  Do
 ==============
 - map example
 - set example
+- str2int & int2str (using sstream)
 
 Websites
 ========
