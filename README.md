@@ -44,6 +44,8 @@ Course
 
 ### 演算法
 
+- Binary Tree
+- Traversal - preorder , inorder , postorder
 - pow and fastpow (看狀況)
 - Segment Tree (略提)
 - Graph - Adjacency Matrix
