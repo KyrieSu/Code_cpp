@@ -20,7 +20,6 @@ Online Judge
 - [TCGS](http://www.tcgs.tc.edu.tw:1218/)
 - [TIOJ](http://tioj.ck.tp.edu.tw/problems)
 - [CodeForce](http://codeforces.com/)
-- [PandFeng Task](https://github.com/pangfengliu/programmingtasks/issues)
 
 Course
 ======
@@ -46,6 +45,7 @@ Course
 ### 演算法
 
 - pow and fastpow (看狀況)
+- Segment Tree (略提)
 - Graph - Adjacency Matrix
 - Graph - Adjacency List (看狀況)
 - Traversal - BFS (看狀況)
