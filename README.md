@@ -28,6 +28,8 @@ Course
 ### 大數
 
 - BigNum
+- 補充 - 小數
+- 補充 - 負數
 - 大數優化 - 壓位數 (略提)
 - 大數優化 - 傅立葉轉換 (略提)
 
@@ -38,18 +40,20 @@ Course
 - STL : stack
 - STL : map (看狀況)
 - STL : set (看狀況)
-- headers - algorithm
+- header - algorithm
 
 ### 演算法
 
 - pow and fastpow (看狀況)
 - Graph - Adjacency Matrix
-- Graph - Adjacency List (看狀況)
+- Graph - Adjacency List (看狀況)<br/>
+  (先備知識:vector)
 - Traversal - BFS (看狀況)
 - Traversal - DFS (看狀況)
 
 ### 串流
 
 - ostream & istream
+- 多載 << & >>
 - stringstream
 - fstream(看狀況)
