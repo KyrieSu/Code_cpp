@@ -27,8 +27,8 @@ Course
 
 ### 大數
 
-- BigNum
-- 大數優化
+BigNum
+大數優化
 
 ### STL
 
