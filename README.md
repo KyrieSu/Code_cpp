@@ -28,7 +28,8 @@ Course
 ### 大數
 
 - BigNum
-- 大數優化
+- 大數優化 - 壓位數 (略提)
+- 大數優化 - 傅立葉轉換 (略提)
 
 ### STL
 
@@ -42,6 +43,10 @@ Course
 ### 演算法
 
 - pow and fastpow (看狀況)
+- Graph - Adjacency Matrix
+- Graph - Adjacency List (看狀況)
+- Traversal - BFS (看狀況)
+- Traversal - DFS (看狀況)
 
 ### 串流
 
