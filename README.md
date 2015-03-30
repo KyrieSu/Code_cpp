@@ -38,8 +38,13 @@ Course
 - STL : vector
 - STL : queue
 - STL : stack
-- STL : map (看狀況)
-- STL : set (看狀況)
+- STL : map (看狀況)<br/>
+  (R-B Tree 基底)
+- STL : set (看狀況)<br/>
+  (Binary Tree 基底)
+- STL : list (看狀況)<br/>
+  (Linked List 基底)
+- header - utility
 - header - algorithm
 
 ### 演算法
@@ -47,9 +52,11 @@ Course
 - pow and fastpow (看狀況)
 - Graph - Adjacency Matrix
 - Graph - Adjacency List (看狀況)<br/>
-  (先備知識:vector)
-- Traversal - BFS (看狀況)
-- Traversal - DFS (看狀況)
+  (先備知識 : vector)
+- Traversal - BFS (看狀況)<br/>
+  (先備知識 : Graph)
+- Traversal - DFS (看狀況)<br/>
+  (先備知識 : Graph)
 
 ### 串流
 
