@@ -35,17 +35,14 @@ Course
 
 ### STL
 
+- header - <utility> - pair()
 - STL : vector
 - STL : queue
 - STL : stack
-- STL : map (看狀況)<br/>
-  (R-B Tree 基底)
-- STL : set (看狀況)<br/>
-  (Binary Tree 基底)
-- STL : list (看狀況)<br/>
-  (Linked List 基底)
-- header - utility
-- header - algorithm
+- STL : map (看狀況)
+- STL : set (看狀況)
+- STL : list (看狀況)
+- header - <algorithm>
 
 ### 演算法
 
