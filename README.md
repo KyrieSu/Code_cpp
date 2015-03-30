@@ -49,11 +49,8 @@ Course
 - pow and fastpow (看狀況)
 - Graph - Adjacency Matrix
 - Graph - Adjacency List (看狀況)<br/>
-  (先備知識 : vector)
 - Traversal - BFS (看狀況)<br/>
-  (先備知識 : Graph)
 - Traversal - DFS (看狀況)<br/>
-  (先備知識 : Graph)
 
 ### 串流
 
