@@ -30,7 +30,7 @@ Course
 - STL : stack
 - STL : map (看狀況)
 - STL : set (看狀況)
-- <algorithm>
+- headers - algorithm
 - pow and fastpow (看狀況)
 - ostream & istream
 - stringstream
