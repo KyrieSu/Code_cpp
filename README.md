@@ -28,29 +28,28 @@ Course
 ### 大數
 
 - BigNum
-- 補充 - 小數
-- 補充 - 負數
-- 大數優化 - 壓位數 (略提)
-- 大數優化 - 傅立葉轉換 (略提)
+- 補充 - 小數 (看狀況)
+- 補充 - 負數 (看狀況)
+- 大數優化 - 壓位數 (概念)
 
 ### STL
 
-- header - \<utility\> - pair()
+- \<utility\> - pair()
 - STL : vector
-- STL : queue
-- STL : stack
+- STL : queue FIFO
+- STL : stack FILO
 - STL : map (看狀況)
 - STL : set (看狀況)
 - STL : list (看狀況)
-- header - \<algorithm\>
+- \<algorithm\>
 
 ### 演算法
 
 - pow and fastpow (看狀況)
 - Graph - Adjacency Matrix
-- Graph - Adjacency List (看狀況)<br/>
-- Traversal - BFS (看狀況)<br/>
-- Traversal - DFS (看狀況)<br/>
+- Graph - Adjacency List (看狀況)
+- Traversal - BFS (看狀況)
+- Traversal - DFS (看狀況)
 
 ### 串流
 
