@@ -5,10 +5,10 @@ using namespace std;
 
 HugeNumber::HugeNumber(){
 	my_digit = 1;
-	data[100] = { 0 };
+	data[100] = { 0 };	// ??
 }
 
-void HugeNumber::random(unsigned int subscript){
+void HugeNumber::random(unsigned int subscript){	// ??
 	int random[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 	for (int i = 0; i < subscript; i++){
 		this->data[i] = random[rand() % 10];
