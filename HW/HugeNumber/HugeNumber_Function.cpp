@@ -4,26 +4,35 @@
 using namespace std;
 
 HugeNumber::HugeNumber(){
-	data[50] = { 0 };
 }
 
-void HugeNumber::random(unsigned int digit){
-	for (int i = 0; i < digit; i++){
-		this->data[i] = rand() % 10;
-	}
+HugeNumber::~HugeNumber(){
+	delete [] data;
+}
+
+void HugeNumber::random(unsigned int subscript){
+	data = new short[subscript];
+	int random[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	for (int i = 0; i < subscript; i++)
+		this->data[i] = random[rand()%10];
 }
 
 
 void HugeNumber::add_function(HugeNumber beadd){
-	HugeNumber total;
-	char carry = '0';
-	for (int i = 0; i < 50; i++){
-		int sum = (int)this->data[i] + beadd.data[i]  + carry;
-		total.data[i] = (char)sum % 10;
-		carry = (char)sum / 10;
-	}
+	int check = this->getdigit()>beadd.getdigit() ? this->getdigit() : beadd.getdigit();
+	int carry = 0;
+	//for (int i = 0; i < check; i++)
 }
 
 void HugeNumber::sub_function(HugeNumber besub){
+	cout << endl;
+}
 
+void HugeNumber::print(){
+	for (int i = 0; i < this->getdigit(); i++)
+		cout << this->data[i];
+}
+
+int HugeNumber::getdigit() {
+	return sizeof(data) / sizeof(short);
 }

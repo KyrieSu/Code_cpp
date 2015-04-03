@@ -10,9 +10,11 @@ public:
 	void random(unsigned int);
 	void add_function(HugeNumber);
 	void sub_function(HugeNumber);
-	void print(HugeNumber);
+	void print();
+	~HugeNumber();
 private:
-	char data[50];		
+	int getdigit();
+	short *data;		
 };
 
 #endif
