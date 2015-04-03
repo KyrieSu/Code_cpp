@@ -4,24 +4,21 @@
 using namespace std;
 
 HugeNumber::HugeNumber(){
-}
-
-HugeNumber::~HugeNumber(){
-	delete [] data;
+	my_digit = 1;
+	data[100] = { 0 };
 }
 
 void HugeNumber::random(unsigned int subscript){
-	data = new short[subscript];
 	int random[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	for (int i = 0; i < subscript; i++)
-		this->data[i] = random[rand()%10];
+	for (int i = 0; i < subscript; i++){
+		this->data[i] = random[rand() % 10];
+		this->my_digit++;
+	}
 }
 
 
 void HugeNumber::add_function(HugeNumber beadd){
-	int check = this->getdigit()>beadd.getdigit() ? this->getdigit() : beadd.getdigit();
-	int carry = 0;
-	//for (int i = 0; i < check; i++)
+	cout << endl;
 }
 
 void HugeNumber::sub_function(HugeNumber besub){
@@ -29,10 +26,7 @@ void HugeNumber::sub_function(HugeNumber besub){
 }
 
 void HugeNumber::print(){
-	for (int i = 0; i < this->getdigit(); i++)
-		cout << this->data[i];
+	for (int i = 0; i < my_digit; i++)
+		cout << data[i];
 }
 
-int HugeNumber::getdigit() {
-	return sizeof(data) / sizeof(short);
-}

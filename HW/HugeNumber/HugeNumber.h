@@ -11,10 +11,9 @@ public:
 	void add_function(HugeNumber);
 	void sub_function(HugeNumber);
 	void print();
-	~HugeNumber();
 private:
-	int getdigit();
-	short *data;		
+	int my_digit ;
+	short data[Max];		
 };
 
 #endif
