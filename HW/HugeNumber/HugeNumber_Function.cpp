@@ -4,29 +4,48 @@
 using namespace std;
 
 HugeNumber::HugeNumber(){
-	my_digit = 1;
-	data[100] = { 0 };	// ??
+	my_digit = 0;
+	for (int i = 0; i < Max; i++)
+		data[i] = 0;
+	check = true;
 }
 
-void HugeNumber::random(unsigned int subscript){	// ??
-	int random[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-	for (int i = 0; i < subscript; i++){
-		this->data[i] = random[rand() % 10];
+void HugeNumber::random(unsigned int subscript){
+	for (int i = 0; i < subscript-1; i++){
+		this->data[i] = rand() % 10;
 		this->my_digit++;
 	}
+	data[subscript - 1] = rand() % 9 + 1;
+	my_digit++;
 }
 
 
-void HugeNumber::add_function(HugeNumber beadd){
-	cout << endl;
+void HugeNumber::add_function(HugeNumber addin){
+	int step = this->my_digit > addin.my_digit ? this->my_digit : addin.my_digit;
+	int carry = 0;
+	for (int i = 0; i < step; i++){
+		int sum = this->data[i] + addin.data[i] + carry;
+		this->data[i] = sum % 10;
+		carry = sum / 10;
+	}
+	this->data[step] = carry;
+	if (carry)
+		my_digit++;
 }
 
-void HugeNumber::sub_function(HugeNumber besub){
-	cout << endl;
+void HugeNumber::sub_function(HugeNumber subto){
+	if (this->my_digit < subto.my_digit){
+		this->check = false;
+		return;
+	}
+	
 }
-
 void HugeNumber::print(){
-	for (int i = 0; i < my_digit; i++)
+	if (!this->check){
+		cout << "(negative)0" << endl;
+		return;
+	}
+	else
+	for (int i = my_digit - 1; i >= 0; i--) /* Like the Stack -> Last-in-first-out */
 		cout << data[i];
 }
-

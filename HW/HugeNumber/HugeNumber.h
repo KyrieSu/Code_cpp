@@ -13,7 +13,8 @@ public:
 	void print();
 private:
 	int my_digit ;
-	short data[Max];		
+	short data[Max];	
+	bool check;
 };
 
 #endif

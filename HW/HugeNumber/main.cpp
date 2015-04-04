@@ -19,6 +19,12 @@ int main(){
 	n3.random(z);
 	cout << "N3: "; n3.print(); cout << endl;
 
+	cout << "N1 + N3 = "; n1.add_function(n3);
+	n1.print(); cout << endl;
+
+	cout << "N2 - N3 = "; n2.sub_function(n3);
+	n2.print(); cout << endl;
+
 	system("PAUSE");
 	return 0;
 }
