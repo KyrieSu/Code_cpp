@@ -38,14 +38,29 @@ void HugeNumber::sub_function(HugeNumber subto){
 		this->check = false;
 		return;
 	}
-	
+	this->data[my_digit - 1]--;
+	this->data[0] += 10;
+	for (int i = 1; i < my_digit - 1; i++)
+		this->data[i] += 9;
+	for (int i = 0; i < my_digit; i++)
+		this->data[i] -= subto.data[i];
+	for (int i = 0; i < my_digit;i++)
+		if (this->data[i] >= 10){
+			int store = this->data[i];
+			this->data[i] = store % 10;
+			this->data[i+1]=this->data[i + 1] + (store / 10);
+		}
+	if (!this->data[my_digit-1])
+		my_digit--;
 }
+
+
 void HugeNumber::print(){
 	if (!this->check){
 		cout << "(negative)0" << endl;
 		return;
 	}
 	else
-	for (int i = my_digit - 1; i >= 0; i--) /* Like the Stack -> Last-in-first-out */
+	for (int i = my_digit - 1; i >= 0; i--) /* First in Last out */
 		cout << data[i];
 }
