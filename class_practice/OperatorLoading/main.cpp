@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Point.h"
+#include <cstdlib>
 using namespace std;
 
 

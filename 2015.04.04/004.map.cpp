@@ -24,9 +24,12 @@ int main(){
 
 	cout << "===============" << endl ;
 
-	myMap.insert(pair<string, int>("ten", 10)) ;
 	myMap["six"] = 6;
 	cout << myMap ;
-	cout << myMap,count("two") << endl ;
+
+	cout << myMap.count("two") << endl ;
+	map<string, int> it2 = myMap.find("two") ;
+	cout << myMap.erase(it2) << endl ;
+	cout << myMap ;
 
 }

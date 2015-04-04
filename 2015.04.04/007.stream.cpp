@@ -19,7 +19,18 @@ int main(){
 	// make a string by stringstream, and output the string
 	stringstream ss ;
 	ss << "Hello World" << endl ;
-	cout << ss.str() ;
+	string s = ss.str() ;
+	cout << s ;
 
 	return 0 ;
 }
+
+
+/*
+
+   class ostream{
+	
+		operator<<(ostream&, int)
+   }
+
+   */
