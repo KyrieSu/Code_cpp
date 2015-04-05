@@ -30,7 +30,7 @@ void HugeNumber::add_function(HugeNumber addin){
 	}
 	this->data[step] = carry;
 	if (carry)
-		my_digit++;
+		this->my_digit>addin.my_digit ? this->my_digit++ : addin.my_digit++;		
 }
 
 void HugeNumber::sub_function(HugeNumber subto){
@@ -48,10 +48,10 @@ void HugeNumber::sub_function(HugeNumber subto){
 		if (this->data[i] >= 10){
 			int store = this->data[i];
 			this->data[i] = store % 10;
-			this->data[i+1]=this->data[i + 1] + (store / 10);
+			this->data[i+1] += (store / 10);
 		}
-	if (!this->data[my_digit-1])
-		my_digit--;
+		while (!data[my_digit-1])
+			my_digit--;
 }
 
 
@@ -61,6 +61,7 @@ void HugeNumber::print(){
 		return;
 	}
 	else
-	for (int i = my_digit - 1; i >= 0; i--) /* First in Last out */
-		cout << data[i];
+		for (int i = my_digit - 1; i >= 0; i--) /* First in Last out */
+			cout << data[i];
+		cout << endl;
 }

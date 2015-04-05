@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstdlib>
 #include"HugeNumber.h"
 using namespace std;
 
