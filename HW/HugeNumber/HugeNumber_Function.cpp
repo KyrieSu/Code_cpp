@@ -27,8 +27,10 @@ void HugeNumber::add_function(HugeNumber addin){
 		carry = sum / 10;
 	}
 	this->data[step] = carry;
-	if (carry)
-		this->my_digit=this->my_digit>addin.my_digit ? this->my_digit++ : addin.my_digit++;		
+	while (this->data[step]){
+		my_digit++;
+		step++;
+	}
 }
 
 void HugeNumber::sub_function(HugeNumber subto){
@@ -36,6 +38,9 @@ void HugeNumber::sub_function(HugeNumber subto){
 		this->check = false;
 		return;
 	}
+	if (my_digit==1&&subto.my_digit==1)
+		if (this->data[0] - subto.data[0] < 0)
+			check = false;
 	this->data[my_digit - 1]--;
 	this->data[0] += 10;
 	for (int i = 1; i < my_digit - 1; i++)
@@ -48,10 +53,12 @@ void HugeNumber::sub_function(HugeNumber subto){
 			this->data[i] = store % 10;
 			this->data[i+1] += (store / 10);
 		}
-		while (!data[my_digit-1])
-			my_digit--;
-		if (data[my_digit - 1] < 0)
-			check = false;
+	while (!data[my_digit-1])
+		my_digit--;
+	if (data[my_digit - 1] < 0)
+		check = false;
+
+
 }
 
 
