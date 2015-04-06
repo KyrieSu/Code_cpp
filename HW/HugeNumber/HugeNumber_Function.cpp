@@ -11,12 +11,10 @@ HugeNumber::HugeNumber(){
 }
 
 void HugeNumber::random(unsigned int subscript){
-	for (int i = 0; i < subscript-1; i++){
+	for (int i = 0; i < subscript-1; i++)
 		this->data[i] = rand() % 10;
-		this->my_digit++;
-	}
 	data[subscript - 1] = rand() % 9 + 1;
-	my_digit++;
+	my_digit = subscript;
 }
 
 
@@ -30,7 +28,7 @@ void HugeNumber::add_function(HugeNumber addin){
 	}
 	this->data[step] = carry;
 	if (carry)
-		this->my_digit>addin.my_digit ? this->my_digit++ : addin.my_digit++;		
+		this->my_digit=this->my_digit>addin.my_digit ? this->my_digit++ : addin.my_digit++;		
 }
 
 void HugeNumber::sub_function(HugeNumber subto){
@@ -52,6 +50,8 @@ void HugeNumber::sub_function(HugeNumber subto){
 		}
 		while (!data[my_digit-1])
 			my_digit--;
+		if (data[my_digit - 1] < 0)
+			check = false;
 }
 
 
