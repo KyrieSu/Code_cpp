@@ -49,12 +49,11 @@ void HugeNumber::sub_function(HugeNumber subto){
 			this->data[i + 1]--;
 			this->data[i] += 10;
 		}
-	while (!this->data[my_digit - 1]){
-		if (my_digit == 1)
+	if (my_digit == 1)
 			return;
-		else
+
+	while (!this->data[my_digit - 1])
 			my_digit--;
-	}
 }
 
 
