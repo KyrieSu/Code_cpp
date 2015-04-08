@@ -39,10 +39,6 @@ void HugeNumber::sub_function(HugeNumber subto){
 	for (int i = 0; i < this->my_digit; i++)
 		this->data[i] -= subto.data[i];
 
-	if (this->data[my_digit-1] < 0){ 
-		check = false;
-		return;
-	}
 
 	for (int i = 0; i < this->my_digit-1; i++)
 		if (this->data[i] < 0){
@@ -50,12 +46,14 @@ void HugeNumber::sub_function(HugeNumber subto){
 			this->data[i] += 10;
 		}
 
-	while (!this->data[my_digit - 1]){
-		if (my_digit == 1)
+	while (data[my_digit - 1]<=0){
+		if (data[my_digit-1] < 0){
+			check = false;
 			return;
-		else
-			my_digit--;
+		}
+		my_digit--;				
 	}
+
 }
 
 
