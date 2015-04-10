@@ -29,11 +29,8 @@ int main(){
 
 	cout << myMap.count("two") << endl ;
 	map<string, int>::iterator it2 = myMap.find("two") ;
-<<<<<<< HEAD
-	myMap.erase(it2);
-=======
+	
 	myMap.erase(it2) ;
->>>>>>> d097911c4203ad7ec7ed40553f41bc8baef105f5
 	cout << myMap ;
 
 }
