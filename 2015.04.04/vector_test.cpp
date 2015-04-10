@@ -24,6 +24,7 @@ int main(){
 	print1(vec1) ;
 	vector<int>::iterator it = find(vec1.begin(), vec1.end(), 5) ;
 	vec1.erase(it) ;
+	sort(vec1.begin(),vec1.end());
 	print1(vec1) ;
 
 

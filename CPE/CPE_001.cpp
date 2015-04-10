@@ -2,6 +2,9 @@
 using namespace std;
 
 
+/* http://uva.onlinejudge.org/external/5/591.html */
+
+
 int main(){
 	int num,total=0,step[100]={0}; 
 	while(true){
