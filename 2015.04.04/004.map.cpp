@@ -28,8 +28,8 @@ int main(){
 	cout << myMap ;
 
 	cout << myMap.count("two") << endl ;
-	map<string, int> it2 = myMap.find("two") ;
-	cout << myMap.erase(it2) << endl ;
+	map<string, int>::iterator it2 = myMap.find("two") ;
+	myMap.erase(it2);
 	cout << myMap ;
 
 }
