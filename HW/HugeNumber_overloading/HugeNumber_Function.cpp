@@ -111,3 +111,19 @@ HugeNumber HugeNumber::operator-(const HugeNumber &right){
 
 	return num;
 }
+
+HugeNumber HugeNumber::operator*(const HugeNumber &right){
+	HugeNumber num;
+	num.my_digit = this->my_digit + right.my_digit; //the max digit 
+	for (int i = 0; i < this->my_digit; i++)
+		for (int j = 0,k=i; j < right.my_digit; j++,k++)
+			num.data[k] += this->data[i] * right.data[j];
+	for (int i = 0; i < num.my_digit; i++){
+		num.data[i + 1] = num.data[i]/10;
+		num.data[i] %= 10;		
+	}
+	while (!num.data[my_digit - 1])
+		my_digit--;
+
+	return num;
+}
