@@ -9,7 +9,7 @@ HugeNumber::HugeNumber(){
 		data[i] = 0;
 }
 
-ostream &operator<<(ostream out, const HugeNumber &toput){
+ostream &operator<<(ostream &out, const HugeNumber &toput){
 	if (!toput.check){
 		cout << "(negative)0" << endl;
 		return;
@@ -27,21 +27,43 @@ void HugeNumber::random(unsigned int subscript){
 	my_digit = subscript;
 }
 
+HugeNumber HugeNumber::operator=(const HugeNumber &equalin){
+	this->my_digit = equalin.my_digit;
+	for (int i = 0; i < my_digit; i++)
+		data[i] = equalin.data[i];
+	return *this;
+}
+
+bool HugeNumber::operator==(const HugeNumber &right){
+	if (this->my_digit != right.my_digit)
+		return false;
+	for (int i = 0; i < my_digit; i++)
+		if (data[i] != right.data[i])
+			return false;
+	return true;
+}
+
+bool HugeNumber::operator!=(const HugeNumber &right){
+	return !(*this == right);
+}
+
+bool HugeNumber::operator>(const HugeNumber &right){
+	if (this->my_digit < right.my_digit)
+		return false;
+	for (int i = my_digit - 1; i >= 0;i++)
+		if (this->data[i] < right.data[i])
+			return false;
+	return true;
+}
+
+bool HugeNumber::operator<(const HugeNumber &right){
+	return !(*this>right);
+}
+
+
+
+
 HugeNumber HugeNumber::operator+(const HugeNumber &addin){
 	HugeNumber num;
-	this->my_digit = this->my_digit > addin.my_digit ? this->my_digit : addin.my_digit;
-	int carry = 0;
-	for (int i = 0; i < this->my_digit; i++){
-		int sum = this->data[i] + addin.data[i] + carry;
-		this->data[i] = sum % 10;
-		carry = sum / 10;
-	}
-	this->data[this->my_digit] = carry;
-	if (this->data[my_digit])
-		my_digit++;
-	/* Copy the result to num */
-	num.my_digit = my_digit;
-	for (int i = 0; i < my_digit; i++)
-		num.data[i] = this->data[i];
-	return num;
+	
 }

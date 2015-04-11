@@ -5,11 +5,11 @@
 
 
 class HugeNumber{
-	friend ostream &operator<<(ostream,const HugeNumber&);
-	public:
+	friend ostream &operator<<(ostream, const HugeNumber&);
+	public:		
 		HugeNumber();
-		void random(unsigned int);
-		HugeNumber operator=(HugeNumber&);
+		static void random(unsigned int);
+		HugeNumber operator=(const HugeNumber&);
 		bool operator==(const HugeNumber&);
 		bool operator!=(const HugeNumber&);
 		bool operator>(const HugeNumber&);
