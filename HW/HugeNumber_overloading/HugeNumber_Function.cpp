@@ -60,10 +60,54 @@ bool HugeNumber::operator<(const HugeNumber &right){
 	return !(*this>right);
 }
 
-
-
-
 HugeNumber HugeNumber::operator+(const HugeNumber &addin){
 	HugeNumber num;
-	
+	if (my_digit > addin.my_digit)
+		num.my_digit = my_digit;
+	else
+		num.my_digit = addin.my_digit;
+
+	for (int i = 0; i < num.my_digit; i++)
+		num.data[i] = this->data[i] + addin.data[i];
+	for (int i = 0; i < num.my_digit; i++){
+		num.data[i + 1] += num.data[i]/10;
+		num.data[i] %= 10;
+	}
+	if (num.data[num.my_digit])
+		num.my_digit++;
+
+	return num;	
+}
+
+HugeNumber HugeNumber::operator-(const HugeNumber &right){
+	HugeNumber num;
+	if (my_digit < right.my_digit){
+		num.check = false;
+		return;
+	}
+
+	/* The exceptional situation */
+	if (my_digit == 1 && right.my_digit == 1 && data[0] == right.data[0]){
+		num.check = true;
+		num.data[0] = 0;
+		return;
+	}
+
+	for (int i = 0; i < my_digit; i++)
+		num.data[i] = this->data[i] - right.data[i];
+	for (int i = 0; i < num.my_digit-1; i++)
+		if (num.data[i] < 0){
+			num.data[i + 1] -= 1;
+			num.data[i] += 10;
+		}
+
+	while (num.data[num.my_digit - 1] <= 0){
+		if (num.data[num.my_digit - 1] < 0){
+			num.check = false;
+			return;
+		}
+		num.my_digit--;
+	}
+
+	return num;
 }
