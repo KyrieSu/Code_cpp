@@ -32,52 +32,22 @@ void HugeNumber::add_function(HugeNumber addin){
 }
 
 void HugeNumber::sub_function(HugeNumber subto){
-	if (this->my_digit < subto.my_digit){
-		this->check = false;
-		return;
-	}
-	if(my_digit==subto.my_digit&&my_digit==1&&data[0]==subto.data[0]){
-		this->check=true;
-		this->data[0]=0;
-		return;
-	}
-		
-	
-	for (int i = 0; i < this->my_digit; i++)
-		this->data[i] -= subto.data[i];
-
-
-	for (int i = 0; i < this->my_digit-1; i++)
-		if (this->data[i] < 0){
-			this->data[i + 1]--;
-			this->data[i] += 10;
+	check=(my_digit>=subto.my_digit);
+	if(!check) return;
+	for(int i=0;i<my_digit;i++){
+		data[i]-=subto.data[i];
+		if(data[i]<0){
+			data[i+1]--;
+			data[i]+=10;
 		}
-
-	while (data[my_digit - 1]<=0){
-		if (data[my_digit-1] < 0){
-			check = false;
+	}
+	if(data[my_digit]<0)
+		check=false;
+		if(!check)
 			return;
-		}
-		my_digit--;				
-	}
-	/*
-
-	check = (my_digit >= subto.my_digit) ;  // true or false
-	if(!check)	return ;
-	for(int i=0 ; i<my_digit ; i++){
-		data[i] -= subto.data[i] ;	// sub
-		if(data[i] < 0){			// carry
-			data[i] += 10 ;
-			data[i+1]-- ;
-		}
-	}
-	if(data[my_digit] < 0)	check = false ;
-	if(!check)	return ;
-	while((data[my_digit-1] == 0) && (my_digit != 1))
-		my_digit--  ;
-
-	*/
-
+	
+	while(data[my_digit-1]==0&&my_digit!=1)
+		my_digit--;	
 }
 
 
