@@ -60,6 +60,23 @@ void HugeNumber::sub_function(HugeNumber subto){
 		}
 		my_digit--;				
 	}
+	/*
+
+	check = (my_digit >= subto.my_digit) ;  // true or false
+	if(!check)	return ;
+	for(int i=0 ; i<my_digit ; i++){
+		data[i] -= subto.data[i] ;	// sub
+		if(data[i] < 0){			// carry
+			data[i] += 10 ;
+			data[i+1]-- ;
+		}
+	}
+	if(data[my_digit] < 0)	check = false ;
+	if(!check)	return ;
+	while((data[my_digit-1] == 0) && (my_digit != 1))
+		my_digit--  ;
+
+	*/
 
 }
 
