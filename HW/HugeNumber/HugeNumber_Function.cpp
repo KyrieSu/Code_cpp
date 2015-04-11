@@ -43,8 +43,8 @@ void HugeNumber::sub_function(HugeNumber subto){
 	}
 	if(data[my_digit]<0)
 		check=false;
-		if(!check)
-			return;
+	if(!check)
+		return;
 	
 	while(data[my_digit-1]==0&&my_digit!=1)
 		my_digit--;	
