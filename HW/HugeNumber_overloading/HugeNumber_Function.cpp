@@ -5,6 +5,7 @@ using namespace std;
 HugeNumber::HugeNumber(){
 	check = true;
 	my_digit = 0;
+	/* I think digit might be 1 not 0 */
 	for (int i = 0; i < Max; i++)
 		data[i] = 0;
 }
