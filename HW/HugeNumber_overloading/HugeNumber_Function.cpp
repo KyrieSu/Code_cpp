@@ -120,6 +120,13 @@ HugeNumber HugeNumber::operator*(const HugeNumber &right){
 	for (int i = 0; i < this->my_digit; i++)
 		for (int j = 0,k=i; j < right.my_digit; j++,k++)
 			num.data[k] += this->data[i] * right.data[j];
+
+	/*
+	for(int i=0 ; i<this->my_digit ; i++)
+		for(int j=0 ; j<right.my_digit ; j++)
+			num.data[i+j] += this.data[i] * this.data[j] ;
+	*/
+
 	for (int i = 0; i < num.my_digit; i++){
 		num.data[i + 1] = num.data[i]/10;
 		num.data[i] %= 10;		
