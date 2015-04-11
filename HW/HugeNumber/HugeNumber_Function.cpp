@@ -36,6 +36,13 @@ void HugeNumber::sub_function(HugeNumber subto){
 		this->check = false;
 		return;
 	}
+	if(my_digit==subto.my_digit&&my_digit==1&&data[0]==subto.data[0]){
+		this->check=true;
+		this->data[0]=0;
+		return;
+	}
+		
+	
 	for (int i = 0; i < this->my_digit; i++)
 		this->data[i] -= subto.data[i];
 
