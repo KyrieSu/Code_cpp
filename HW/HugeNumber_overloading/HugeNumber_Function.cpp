@@ -10,26 +10,29 @@ HugeNumber::HugeNumber(){
 		data[i] = 0;
 }
 
-ostream &operator<<(ostream &out, const HugeNumber &toput){
+HugeNumber HugeNumber::zero(HugeNumber &right){
+	right.data[0] = 0;
+	right.my_digit = 1;
+}
+
+ostream &operator<<(ostream &output, const HugeNumber &toput){
 	if (!toput.check){
-		cout << "(negative)0" << endl;
-		// cout ?????????
+		output << "(negative)0" << endl;
 		return;
 	}
-	for (int i = 0; i < my_digit; i++)
-	// who's my_digit and data[] ?
-		out << data[i];
-	out << endl;
+	for (int i = 0; i < toput.my_digit; i++)
+		output << toput.data[i];
+	output << endl;
 
-	return out;
+	return output;
 }
 
 
-void HugeNumber::random(unsigned int subscript){
+HugeNumber HugeNumber::random(unsigned int subscript,HugeNumber &me){
 	for (int i = 0; i < subscript - 1; i++)
-		data[i] = rand() % 10;
-	data[subscript - 1] = rand() % 9 + 1;
-	my_digit = subscript;
+		me.data[i] = rand() % 10;
+	me.data[subscript - 1] = rand() % 9 + 1;
+	me.my_digit = subscript;
 }
 
 HugeNumber HugeNumber::operator=(const HugeNumber &equalin){
@@ -63,7 +66,6 @@ bool HugeNumber::operator>(const HugeNumber &right){
 
 bool HugeNumber::operator<(const HugeNumber &right){
 	return ! ( (*this>right) && (*this==right) );
-	// > and == must be false 
 }
 
 HugeNumber HugeNumber::operator+(const HugeNumber &addin){
@@ -125,12 +127,24 @@ HugeNumber HugeNumber::operator*(const HugeNumber &right){
 	return num;
 }
 
+HugeNumber HugeNumber::operator*(int mulity){
+
+}
+
+
+
 HugeNumber HugeNumber::operator/(const HugeNumber &right){
 	HugeNumber num;
 	if (right.my_digit == 1 && right.data[0] == 0)
 		return;
-	num.my_digit = this->my_digit - right.my_digit + 1;
+	num.my_digit = this->my_digit - right.my_digit + 1; //The max digit
 	
+
+	return num;
+}
+
+HugeNumber HugeNumber::operator%(const HugeNumber &right){
+	HugeNumber num;
 
 	return num;
 }
