@@ -5,8 +5,9 @@
 
 
 class HugeNumber{
-	friend ostream &operator<<(ostream, const HugeNumber&);
 	public:		
+		friend ostream &operator<<(ostream, const HugeNumber&);
+		// using ostream but not include <iostream>
 		HugeNumber();
 		static void random(unsigned int);
 		HugeNumber operator=(const HugeNumber&);

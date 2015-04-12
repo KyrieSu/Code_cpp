@@ -13,9 +13,11 @@ HugeNumber::HugeNumber(){
 ostream &operator<<(ostream &out, const HugeNumber &toput){
 	if (!toput.check){
 		cout << "(negative)0" << endl;
+		// cout ?????????
 		return;
 	}
 	for (int i = 0; i < my_digit; i++)
+	// who's my_digit and data[] ?
 		out << data[i];
 	out << endl;
 
@@ -61,6 +63,7 @@ bool HugeNumber::operator>(const HugeNumber &right){
 
 bool HugeNumber::operator<(const HugeNumber &right){
 	return ! ( (*this>right) && (*this==right) );
+	// > and == must be false 
 }
 
 HugeNumber HugeNumber::operator+(const HugeNumber &addin){
