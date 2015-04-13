@@ -5,7 +5,7 @@
 
 
 class HugeNumber{
-	
+	friend ostream &operator<<(ostream&, const HugeNumber&);
 	public:		
 		HugeNumber();
 		static HugeNumber zero(HugeNumber&); 
@@ -19,13 +19,12 @@ class HugeNumber{
 		HugeNumber operator-(const HugeNumber&);
 		HugeNumber operator*(const HugeNumber&);
 		HugeNumber operator/(const HugeNumber&);
-		HugeNumber operator%(const HugeNumber&);
-		friend ostream &operator<<(ostream, const HugeNumber&);
+		HugeNumber operator%(const HugeNumber&);		
 	private:
 		bool check;
 		int my_digit;
 		short data[Max];
-		HugeNumber operator*(int);
+		bool helpdivide(HugeNumber,int);
 };
 
 

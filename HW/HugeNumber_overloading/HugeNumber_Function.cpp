@@ -1,6 +1,6 @@
 #include<iostream>
-#include"HugeNumber.h"
 #include<vector>
+#include"HugeNumber.h"
 using namespace std;
 
 HugeNumber::HugeNumber(){
@@ -90,7 +90,7 @@ HugeNumber HugeNumber::operator+(const HugeNumber &addin){
 HugeNumber HugeNumber::operator-(const HugeNumber &right){
 	HugeNumber num;
 	num.check = (this->my_digit >= right.my_digit);
-	if (!num.check) return;
+	if (!num.check) return num;
 	for (int i = 0; i < num.my_digit; i++){
 		num.data[i] = this->data[i] - right.data[i];
 		if (num.data[i] < 0){
@@ -101,8 +101,8 @@ HugeNumber HugeNumber::operator-(const HugeNumber &right){
 
 
 	if (num.data[my_digit] < 0){
-		check = false;
-		return;
+		num.check = false;
+		return num;
 	}
 
 	while (data[my_digit - 1] == 0 && my_digit != 1)
@@ -122,29 +122,54 @@ HugeNumber HugeNumber::operator*(const HugeNumber &right){
 		num.data[i] %= 10;		
 	}
 	while (!num.data[my_digit - 1])
-		my_digit--;
+		num.my_digit--;
 
 	return num;
 }
 
-HugeNumber HugeNumber::operator*(int mulity){
-
+bool HugeNumber::helpdivide(HugeNumber bedivide, int Q){
+	int step = bedivide.my_digit - this->my_digit - 1;
+	vector<short> vec(this->my_digit);
+	for (int i = 0; i < this->my_digit; i++)
+		vec[i] = this->data[i];
+	while (step--)
+		vec.push_back(0);
+	this->my_digit += step;
+	for (int i = 0; i < this->my_digit ; i++)
+		this->data[i] = vec[i];
+	for (int i = 0; i < this->my_digit; i++)
+		this->data[i] *= Q;
+	for (int i = 0; i < this->my_digit; i++){
+		this->data[i + 1] += this->data[i] / 10;
+		this->data[i] %= 10;
+	}
+	if (*this>bedivide)
+		return true;
+	
+	return false;
 }
-
 
 
 HugeNumber HugeNumber::operator/(const HugeNumber &right){
 	HugeNumber num;
-	if (right.my_digit == 1 && right.data[0] == 0)
-		return;
+	if (right.my_digit == 1 && right.data[0] == 0){
+		num.check = false;
+		return num;
+	}
 	num.my_digit = this->my_digit - right.my_digit + 1; //The max digit
-	
+	HugeNumber mulity = right;
+	for (int i = 0; i<num.my_digit; i++)
+		for (int j = 1; j < 10; j++){
+			if (mulity.helpdivide(*this, j)){
+				num.data[my_digit-1 -i] = j-1;
+				break;
+			}
 
 	return num;
 }
 
 HugeNumber HugeNumber::operator%(const HugeNumber &right){
-	HugeNumber num;
-
+	HugeNumber num = (*this) - (*this)*right;
+	
 	return num;
 }
