@@ -4,9 +4,9 @@
 #define Max 100
 
 
-class HugeNumber{
-	friend ostream &operator<<(ostream&, const HugeNumber&);
+class HugeNumber{	
 	public:		
+		friend ostream &operator<<(ostream&,const HugeNumber&);
 		HugeNumber();
 		static HugeNumber zero(HugeNumber&); 
 		static HugeNumber random(unsigned int,HugeNumber&);
@@ -24,7 +24,6 @@ class HugeNumber{
 		bool check;
 		int my_digit;
 		short data[Max];
-		bool helpdivide(HugeNumber,int);
 };
 
 
