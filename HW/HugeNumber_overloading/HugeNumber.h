@@ -21,6 +21,7 @@ class HugeNumber{
 		HugeNumber operator/(const HugeNumber&);
 		HugeNumber operator%(const HugeNumber&);		
 	private:
+		HugeNumber helpdivison(int,int);
 		bool check;
 		int my_digit;
 		short data[Max];

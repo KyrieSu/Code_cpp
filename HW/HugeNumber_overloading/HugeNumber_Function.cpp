@@ -35,6 +35,7 @@ HugeNumber HugeNumber::random(unsigned int subscript,HugeNumber &me){
 
 HugeNumber HugeNumber::operator=(const HugeNumber &equalin){
 	this->my_digit = equalin.my_digit;
+	this->check = equalin.check;
 	for (int i = 0; i < my_digit; i++)
 		data[i] = equalin.data[i];
 	return *this;
@@ -126,42 +127,53 @@ HugeNumber HugeNumber::operator*(const HugeNumber &right){
 	return num;
 }
 
+HugeNumber HugeNumber::helpdivison(int Q,int fill){
+	HugeNumber num;
+	vector<short> vec(this->my_digit);
+	for (int i = 0; i < this->my_digit; i++)
+		vec[i] = this->data[i];
+	while (fill--)
+		vec.push_back(0);
+	for (int i = 0; i < vec.size(); i++)
+		num.data[i] = vec[i];
+	num.my_digit = vec.size();
+	for (int i = 0; i < num.my_digit; i++)
+		num.data[i] *= Q;
+	for (int i = 0; i < num.my_digit;i++)
+		if (num.data[i]>9){
+			num.data[i + 1] += num.data[i] % 10;
+			num.data[i] /= 10;
+		}
+	if (num.data[my_digit])
+		num.my_digit++;
+
+	return num;
+}
+
 
 
 HugeNumber HugeNumber::operator/(const HugeNumber &right){
 	HugeNumber num;
-	HugeNumber copy = *this;
-	int i;
-	for (i = 1;; i++){
-		copy = copy - right;
-		if (copy < right)
-			break;
-	}
+	num.my_digit = this->my_digit - right.my_digit;
+	if (this->data[my_digit - 1] > right.data[my_digit - 1])
+		num.my_digit++;
 
-	int timer = 0;
-	do{
-		num.data[timer] = i % 10;
-		i /= 10;
-		timer++;
-	} while(i);
-	
-	num.my_digit = ++timer;
+	int timer = num.my_digit;
+	HugeNumber todiv = right;
+	HugeNumber copy = *this;
+	for (int j = num.my_digit; j > 0;j--)
+		for (int i = 0; i < 10;i++)
+			if (todiv.helpdivison(i,j-1)>copy){
+				copy = copy - todiv.helpdivison(i,j);
+				num.data[num.my_digit - 1] = i - 1;
+				break;
+			}
+
 	return num;
 }
 
 HugeNumber HugeNumber::operator%(const HugeNumber &right){
 	HugeNumber num;
-	HugeNumber copy = *this;
-	int i;
-	for (i = 1;; i++){
-		copy = copy - right;
-		if (copy < right)
-			break;
-	}
-	num = copy;
-	num.my_digit = 0;
-	while (num.data[my_digit])
-		num.my_digit++;
-
+	
 	return num;
 }
