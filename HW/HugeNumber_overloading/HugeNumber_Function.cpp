@@ -17,13 +17,14 @@ HugeNumber HugeNumber::zero(HugeNumber &right){
 
 ostream &operator<<(ostream &output, const HugeNumber &toput){
 	if (!toput.check){
-		output << "(negative)0" << endl;
+		output << "(negative)";
 		return output;
 	}
-	for (int i = toput.my_digit - 1; i >= 0; i--)
+	for (int i = 0; i < toput.my_digit; i++)
 		output << toput.data[i];
 	output << endl;
-	return output;
+
+	return output;		
 }
 
 HugeNumber HugeNumber::random(unsigned int subscript,HugeNumber &me){
@@ -90,22 +91,25 @@ HugeNumber HugeNumber::operator+(const HugeNumber &addin){
 HugeNumber HugeNumber::operator-(const HugeNumber &right){
 	HugeNumber num;
 	num.check = (this->my_digit >= right.my_digit);
-	if (!num.check) return num;
+	if (!num.check){
+		num.data[0] = 0;
+		return num;
+	}
 	for (int i = 0; i < num.my_digit; i++){
-		num.data[i] = this->data[i] - right.data[i];
+		num.data[i] += this->data[i] - right.data[i];
 		if (num.data[i] < 0){
 			num.data[i + 1]--;
 			num.data[i] += 10;
 		}
 	}
 
-	if (num.data[my_digit] < 0){
+	while (num.data[num.my_digit - 1] == 0 && num.my_digit != 1)
+		num.my_digit--;
+	
+	if (num.data[num.my_digit] < 0){
 		num.check = false;
 		return num;
 	}
-
-	while (data[my_digit - 1] == 0 && my_digit != 1)
-		my_digit--;
 
 	return num;
 }
@@ -127,7 +131,7 @@ HugeNumber HugeNumber::operator*(const HugeNumber &right){
 	return num;
 }
 
-HugeNumber HugeNumber::helpdivison(int Q,int fill){
+HugeNumber HugeNumber::helpdivison(int Q,int fill){  // this => todiv => right
 	HugeNumber num;
 	vector<short> vec(this->my_digit);
 	for (int i = 0; i < this->my_digit; i++)
@@ -158,7 +162,6 @@ HugeNumber HugeNumber::operator/(const HugeNumber &right){
 	if (this->data[my_digit - 1] > right.data[my_digit - 1])
 		num.my_digit++;
 
-	int timer = num.my_digit;
 	HugeNumber todiv = right;
 	HugeNumber copy = *this;
 	for (int j = num.my_digit; j > 0;j--)
@@ -174,6 +177,23 @@ HugeNumber HugeNumber::operator/(const HugeNumber &right){
 
 HugeNumber HugeNumber::operator%(const HugeNumber &right){
 	HugeNumber num;
-	
+	num.my_digit = this->my_digit - right.my_digit;
+	if (this->data[my_digit - 1] > right.data[my_digit - 1])
+		num.my_digit++;
+
+	HugeNumber todiv = right;
+	HugeNumber copy = *this;
+	for (int j = num.my_digit; j > 0; j--)
+		for (int i = 0; i < 10; i++)
+			if (todiv.helpdivison(i, j - 1)>copy){
+				copy = copy - todiv.helpdivison(i, j);
+				num.data[num.my_digit - 1] = i - 1;
+				break;
+			}
+	num = copy;
+	num.my_digit = right.my_digit;
+	while (num.data[num.my_digit - 1] == 0 && num.data[num.my_digit - 2] == 0)
+		num.my_digit--;
+		
 	return num;
 }
