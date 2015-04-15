@@ -1,3 +1,4 @@
+#include<iostream>
 #ifndef HugeNumber_h
 #define HugeNumber_h
 
@@ -6,7 +7,7 @@
 
 class HugeNumber{	
 	public:		
-		friend ostream &operator<<(ostream&,const HugeNumber&);
+		friend std::ostream &operator<<(std::ostream&,const HugeNumber&);
 		HugeNumber();
 		static HugeNumber zero(HugeNumber&); 
 		static HugeNumber random(unsigned int,HugeNumber&);
@@ -26,7 +27,6 @@ class HugeNumber{
 		int my_digit;
 		short data[Max];
 };
-
 
 
 #endif
