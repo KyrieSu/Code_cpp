@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 /* https://leetcode.com/problems/happy-number/ */
+/* reference by : http://en.wikipedia.org/wiki/Happy_number */
 /* [2,6] is not happy number*/
 
 bool happy(int num){
