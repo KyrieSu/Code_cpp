@@ -4,6 +4,9 @@
 class Point{
 public:
 	Point();
+	friend class Figure ;
+	friend class Line ;
+	friend class Rectangle ;
 private:
 	int x, y;
 };
