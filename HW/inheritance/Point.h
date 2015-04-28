@@ -1,18 +1,34 @@
-#ifndef Point_h
-#define Point_h
+#ifndef s1031434_Point_h
+#define s1031434_Point_h
 
 class Point{
 public:
-	Point(int =0,int =0);
+	Point();
 private:
-	int x;
-	int y;
+	int x, y;
 };
 
 class Figure{
 public:
-	void area(int,int,int,int);
+	int area();
 };
+
+class Line :public Figure{
+public:
+	Line(int=0, int=0,int=0,int=0);
+private:
+	Point A;
+	Point B;
+};
+
+class Rectangle :public Figure{
+public:
+	Rectangle(int = 0, int = 0, int = 0, int = 0);
+private:
+	Point A;
+	Point B;
+};
+
 
 
 
