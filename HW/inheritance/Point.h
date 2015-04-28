@@ -2,11 +2,13 @@
 #define s1031434_Point_h
 
 class Point{
+	friend class Figure;
+	friend class Line;
+	friend class Rectangle;
+	friend class Triangle;
+	friend class Circle;
 public:
 	Point();
-	friend class Figure ;
-	friend class Line ;
-	friend class Rectangle ;
 private:
 	int x, y;
 };
@@ -14,24 +16,31 @@ private:
 class Figure{
 public:
 	int area();
+	Point A, B, C;
 };
 
 class Line :public Figure{
 public:
 	Line(int=0, int=0,int=0,int=0);
-private:
-	Point A;
-	Point B;
 };
 
 class Rectangle :public Figure{
 public:
 	Rectangle(int = 0, int = 0, int = 0, int = 0);
-private:
-	Point A;
-	Point B;
+	int area();
 };
 
+class Triangle :public Figure{
+public:
+	Triangle(int = 0, int = 0, int = 0, int = 0, int = 0, int = 0);
+	double area();
+};
+
+class Circle :public Figure{
+public:
+	Circle(int = 0, int = 0, int = 0, int = 0);
+	double area();
+};
 
 
 
