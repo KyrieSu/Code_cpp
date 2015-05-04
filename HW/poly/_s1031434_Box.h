@@ -40,14 +40,12 @@ class Carton :public Box{ //inheritance Box and Vessel
 public:
 	Carton(double,double,double,std::string);
 	double volume();
-	std::string getName();
 };
 
 class ToughPack:public Box{
 public:
 	ToughPack(double, double, double, std::string);
 	double volume();
-	std::string getName();
 };
 
 

@@ -47,9 +47,6 @@ double Carton::volume(){
 	return (length - 0.5)*(breadth - 0.5)*(height - 0.5);
 }
 
-string Carton::getName(){
-	return name;
-}
 
 ToughPack::ToughPack(double x, double y, double z, string str){
 	height = x;
@@ -60,8 +57,4 @@ ToughPack::ToughPack(double x, double y, double z, string str){
 
 double ToughPack::volume(){
 	return 0.85*length*breadth*height;
-}
-
-string ToughPack::getName(){
-	return name;
 }
