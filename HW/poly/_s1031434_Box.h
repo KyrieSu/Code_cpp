@@ -6,7 +6,7 @@
 
 class Vessel{
 public:
-	virtual std::string getName()=NULL;
+	virtual std::string getName()=0;
 	virtual double volume()=0;
 };
 

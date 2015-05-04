@@ -18,6 +18,8 @@ string Can::getName(){
 	return name;
 }
 
+Box::Box(){}
+
 Box::Box(double x, double y, double z, string str){
 	height = x;
 	length = y;
