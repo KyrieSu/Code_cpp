@@ -7,7 +7,7 @@ using namespace std;
 
 /* Enigma_File FUNCTION */
 
-
+Enigma_Files::Enigma_Files(){}
 
 void Enigma_Files::Read_file(string file_name){
 	ifstream readfile(file_name.c_str(), ios::in);
@@ -44,7 +44,7 @@ Enigma_Component::Enigma_Component(){
 	this->next = NULL;
 }
 
-int Enigma_Component::changeASCII(char c){
+int Enigma_Component::changeASCII(char c){ //reset ASCII A=1 ~ Z=26
 	/* 65~90 -> A~Z
 	   97~122-> a~z  */
 	return int(c) - 64;

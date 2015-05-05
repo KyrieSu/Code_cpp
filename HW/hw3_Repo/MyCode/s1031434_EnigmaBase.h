@@ -13,6 +13,7 @@ class Reflector;
 
 class Enigma_Files{
 public:
+	Enigma_Files();
 	void Read_file(std::string);
 	void Write_file(std::string);
 	void Push(const char&); //push a character on the tail(end) of string
@@ -34,7 +35,7 @@ protected:
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const&) = 0;
 	void Read_table(std::string);//Read a mapping table from file to setup current component (It should be overrided by derived classes)
-	virtual void Spin() {}
+	virtual void Spin() {}//Spin current component (It should be overrided by derived classes)
 };
 
 
