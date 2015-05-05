@@ -28,7 +28,7 @@ public:
 	Enigma_Component();
 	char Input_signal(char);//Input a character and return a encoded one (use this function to invoke "Encoding" function)
 	void Link(Enigma_Component&);
-	static std::map<string, int> ASCII;
+	static int changeASCII(char);
 protected:
 	Enigma_Component *previos;
 	Enigma_Component *next;
