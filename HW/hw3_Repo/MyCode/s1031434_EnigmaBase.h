@@ -2,6 +2,14 @@
 #define EnigmaBase_h
 
 #include<string>
+#include<map>
+
+
+class Plugboard;
+class wheel;
+class Special_wheel;
+class Reflector;
+
 
 class Enigma_Files{
 public:
@@ -18,13 +26,14 @@ private:
 class Enigma_Component{
 public:
 	Enigma_Component();
-	char Input_signal(char);
+	char Input_signal(char);//Input a character and return a encoded one (use this function to invoke "Encoding" function)
 	void Link(Enigma_Component&);
+	static std::map<string, int> ASCII;
 protected:
 	Enigma_Component *previos;
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const&) = 0;
-	void Read_table(std::string);
+	void Read_table(std::string);//Read a mapping table from file to setup current component (It should be overrided by derived classes)
 	virtual void Spin() {}
 };
 

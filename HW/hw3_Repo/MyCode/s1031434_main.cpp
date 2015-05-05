@@ -1,6 +1,10 @@
 #include<iostream>
 #include"s1031434_EnigmaBase.h"
+#include"s1031434_Enigma.h"
 using namespace std;
+
+/* 65~90 -> A~Z  
+   97~122 ->a~z */
 
 int main(){
 	Enigma_Files wheel_start_file;
@@ -22,6 +26,7 @@ int main(){
 	wheel_start_file.Read_file("wheel_web_start.txt");
 
 	cout << "Read [Plugboard]: \"plugboard_web.txt\"" << endl;
+	Plugboard plugboard("plugboard_web.txt");
 	cout << "Read [Rotor III]: \"wheel_web_0.txt\"" << endl;
 	cout << "Read [Rotor II]: \"wheel_web_1.txt\"" << endl;
 	cout << "Read [Rotor I]: \"wheel_web_2.txt\"" << endl;
