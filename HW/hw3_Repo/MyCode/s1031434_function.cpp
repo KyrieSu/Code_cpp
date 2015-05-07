@@ -46,10 +46,9 @@ Enigma_Component::Enigma_Component(){
 }
 
 char Enigma_Component::Input_signal(char c){
+	return (char)(Encoding((int)c)+65);
 }
 
-void Enigma_Component::Read_table(string file_name){
-}
 
 void Enigma_Component::Link(Enigma_Component& link){
 	this->next = &link;
@@ -64,8 +63,8 @@ Plugboard::Plugboard(string file_name){
 	getline(readfile, data);
 }
 
-size_t Plugboard::Encoding(size_t const& index){
-
+size_t Plugboard::Encoding(const size_t index){
+	return (int)data[index - 65]-65;
 }
 
 /* Wheel FUNCTION */
@@ -79,6 +78,18 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 	key = arrow;
 }
 
+size_t Wheel::Encoding(const size_t index){
+	return (int)data[index - 65] - 65;
+}
+
+void Wheel::spin(){
+	start++;
+	start %= 26;
+	if (start == key)
+		this->next->spin();
+}
+
+
 /* Reflector FUNCTION */
 
 Reflector::Reflector(string file_name){
@@ -87,7 +98,8 @@ Reflector::Reflector(string file_name){
 	getline(readfile, data);
 }
 
-size_t Reflector::Encoding(size_t const& index){
+size_t Reflector::Encoding(const size_t index){
+	
 }
 
 /* Special_Wheel FUNCTION */
