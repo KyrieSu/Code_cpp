@@ -8,22 +8,28 @@ class Plugboard :public Enigma_Component{
 public:
 	Plugboard(std::string);
 	size_t Encoding(size_t const&);
-	void spin();
+private:
+	string data;
 };
 
 class Wheel :public Enigma_Component{ //Roter I and Roter III
 public:
+	Wheel();
 	Wheel(std::string,char,char);
 	size_t Encoding(size_t const&);
 	void spin();
 private:
-	char key;
+	string data;
+	char start; 
+	char key;//to check spin()
 };
 
 class Special_Wheel : public Wheel{
 public:
 	Special_Wheel(std::string, char, char);
 private:
+	string data;
+	char start;
 	char key;
 };
 
@@ -33,8 +39,7 @@ public:
 	size_t Encoding(size_t const&);
 	void spin();
 private:
-	char key;
+	std::string data;
 };
-
 
 #endif

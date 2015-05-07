@@ -29,13 +29,14 @@ public:
 	Enigma_Component();
 	char Input_signal(char);//Input a character and return a encoded one (use this function to invoke "Encoding" function)
 	void Link(Enigma_Component&);
-	static int changeASCII(char);
 protected:
 	Enigma_Component *previos;
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const&) = 0;
 	void Read_table(std::string);//Read a mapping table from file to setup current component (It should be overrided by derived classes)
-	virtual void Spin() {}//Spin current component (It should be overrided by derived classes)
+	virtual void spin() {}//Spin current component (It should be overrided by derived classes)
+private:
+	std::string file_data;
 };
 
 

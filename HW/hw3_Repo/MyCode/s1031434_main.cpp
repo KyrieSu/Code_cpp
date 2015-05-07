@@ -44,7 +44,7 @@ int main(){
 	wheel_1.Link(wheel_2);
 	wheel_2.Link(reflector);
 
-	cout << "Original message: " << std::endl << original_message_file.Data() << endl;
+	cout << "Original message: " << endl << original_message_file.Data() << endl;
 
 	for (size_t i = 0; i < original_message_file.Length(); i++)
 		encoded_message_file.Push(plugboard.Input_signal(original_message_file[i]));
@@ -55,7 +55,6 @@ int main(){
 	cout << "Eecoded message: " << std::endl << encoded_message_file.Data() << endl;
 
 	cout << "Press any key to exit...";
-
 
 	system("PAUSE");
 	return 0;

@@ -3,6 +3,7 @@
 #include<string>
 #include<cstdlib>
 #include"s1031434_EnigmaBase.h"
+#include"s1031434_Enigma.h"
 using namespace std;
 
 /* Enigma_File FUNCTION */
@@ -44,25 +45,61 @@ Enigma_Component::Enigma_Component(){
 	this->next = NULL;
 }
 
-int Enigma_Component::changeASCII(char c){ //reset ASCII A=1 ~ Z=26
-	/* 65~90 -> A~Z
-	   97~122-> a~z  */
-	return int(c) - 64;
-}
-
-
 char Enigma_Component::Input_signal(char c){
-	return c;
 }
 
 void Enigma_Component::Read_table(string file_name){
-	string file_data;
-	ifstream readfile(file_name.c_str(), ios::in);
-	if (!readfile) cout << file_name << " can't be open" << endl;
-	getline(readfile,file_data);
 }
 
 void Enigma_Component::Link(Enigma_Component& link){
 	this->next = &link;
 	link.previos = this;
 }
+
+/* Plugboard FUNCTION */
+
+Plugboard::Plugboard(string file_name){
+	ifstream readfile(file_name, ios::in);
+	if (!readfile) cout << file_name << " can't be opened!" << endl;
+	getline(readfile, data);
+}
+
+size_t Plugboard::Encoding(size_t const& index){
+
+}
+
+/* Wheel FUNCTION */
+
+Wheel::Wheel(string file_name,char begin,char arrow){
+	ifstream readfile(file_name, ios::in);
+	if (!readfile) cout << file_name << " can't be opened!" << endl;
+	getline(readfile, data);
+
+	start = begin;
+	key = arrow;
+}
+
+/* Reflector FUNCTION */
+
+Reflector::Reflector(string file_name){
+	ifstream readfile(file_name, ios::in);
+	if (!readfile) cout << file_name << " can't be opened!" << endl;
+	getline(readfile, data);
+}
+
+size_t Reflector::Encoding(size_t const& index){
+}
+
+/* Special_Wheel FUNCTION */
+
+Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
+	ifstream readfile(file_name, ios::in);
+	if (!readfile) cout << file_name << " can't be opened!" << endl;
+	getline(readfile, data);
+
+	start = begin;
+	key = arrow;
+}
+
+
+
