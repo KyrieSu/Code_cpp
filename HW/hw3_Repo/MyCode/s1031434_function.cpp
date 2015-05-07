@@ -59,7 +59,7 @@ void Enigma_Component::Link(Enigma_Component& link){
 /* Plugboard FUNCTION */
 
 Plugboard::Plugboard(string file_name){
-	ifstream readfile(file_name, ios::in);
+	ifstream readfile(file_name.c_str(), ios::in);
 	if (!readfile) cout << file_name << " can't be opened!" << endl;
 	getline(readfile, data);
 }
@@ -71,7 +71,7 @@ size_t Plugboard::Encoding(size_t const& index){
 /* Wheel FUNCTION */
 
 Wheel::Wheel(string file_name,char begin,char arrow){
-	ifstream readfile(file_name, ios::in);
+	ifstream readfile(file_name.c_str(), ios::in);
 	if (!readfile) cout << file_name << " can't be opened!" << endl;
 	getline(readfile, data);
 
@@ -82,7 +82,7 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 /* Reflector FUNCTION */
 
 Reflector::Reflector(string file_name){
-	ifstream readfile(file_name, ios::in);
+	ifstream readfile(file_name.c_str(), ios::in);
 	if (!readfile) cout << file_name << " can't be opened!" << endl;
 	getline(readfile, data);
 }
@@ -93,7 +93,7 @@ size_t Reflector::Encoding(size_t const& index){
 /* Special_Wheel FUNCTION */
 
 Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
-	ifstream readfile(file_name, ios::in);
+	ifstream readfile(file_name.c_str(), ios::in);
 	if (!readfile) cout << file_name << " can't be opened!" << endl;
 	getline(readfile, data);
 
