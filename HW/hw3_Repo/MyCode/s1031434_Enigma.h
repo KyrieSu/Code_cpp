@@ -37,4 +37,5 @@ public:
 	size_t Encoding(const size_t);
 };
 
+
 #endif

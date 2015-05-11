@@ -2,7 +2,6 @@
 #define EnigmaBase_h
 
 #include<string>
-#include<map>
 
 
 class Plugboard;

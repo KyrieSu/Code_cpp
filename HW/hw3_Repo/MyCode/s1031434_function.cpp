@@ -44,9 +44,8 @@ Enigma_Component::Enigma_Component(){
 }
 
 char Enigma_Component::Input_signal(char c){
-	return Plugboard::Encoding(c);
+	return this->Encoding(c);
 }
-
 
 void Enigma_Component::Link(Enigma_Component& link){
 	this->next = &link;
@@ -71,6 +70,8 @@ size_t Plugboard::Encoding(const size_t index){
 }
 
 /* Wheel FUNCTION */
+
+Wheel::Wheel(){}
 
 Wheel::Wheel(string file_name,char begin,char arrow){
 	ifstream readfile(file_name.c_str(), ios::in);
@@ -129,4 +130,6 @@ Reflector::Reflector(string file_name){
 size_t Reflector::Encoding(const size_t index){
 		return previous->Encoding(data[index - 65]);
 }
+
+
 
