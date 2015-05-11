@@ -27,6 +27,8 @@ private:
 class Special_Wheel : public Wheel{
 public:
 	Special_Wheel(std::string, char, char);
+	size_t Encoding(const size_t);
+	void spin();
 private:
 	std::string data;
 	char start;
