@@ -8,8 +8,6 @@ using namespace std;
 
 /* Enigma_File FUNCTION */
 
-Enigma_Files::Enigma_Files(){}
-
 void Enigma_Files::Read_file(string file_name){
 	ifstream readfile(file_name.c_str(), ios::in);
 	if (!readfile) cout << file_name << " can't be open" << endl;
@@ -41,7 +39,7 @@ size_t Enigma_Files::Length(){
 /* Enigma_Component FUNCTION */
 
 Enigma_Component::Enigma_Component(){
-	this->previos = NULL;
+	this->previous = NULL;
 	this->next = NULL;
 }
 
@@ -52,7 +50,7 @@ char Enigma_Component::Input_signal(char c){
 
 void Enigma_Component::Link(Enigma_Component& link){
 	this->next = &link;
-	link.previos = this;
+	link.previous = this;
 }
 
 /* Plugboard FUNCTION */
@@ -64,8 +62,12 @@ Plugboard::Plugboard(string file_name){
 }
 
 size_t Plugboard::Encoding(const size_t index){
-	this->next->spin();
-	return this->next->Encoding(data[index-65]);
+	if (this->next){
+		this->next->spin();
+		return next->Encoding(data[index-65]);
+	}
+	if (this->previous == NULL)
+		return data[index - 65];
 }
 
 /* Wheel FUNCTION */
@@ -75,32 +77,22 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 	if (!readfile) cout << file_name << " can't be opened!" << endl;
 	getline(readfile, data);
 
-	start = begin;
+	start = begin; 
 	key = arrow;
 }
 
 size_t Wheel::Encoding(const size_t index){
-	return this->next->Encoding(data[index - 65]);
+	if (this->next)
+		return next->Encoding(data[index - 65]);
+	if (this->previous)
+		return previous->Encoding(data[index - 65]);
 }
 
 void Wheel::spin(){
 	start++;
-	start %= 26;
-	if (start == key)
+	start %= 65;
+	if (start == key-1)
 		this->next->spin();
-}
-
-
-/* Reflector FUNCTION */
-
-Reflector::Reflector(string file_name){
-	ifstream readfile(file_name.c_str(), ios::in);
-	if (!readfile) cout << file_name << " can't be opened!" << endl;
-	getline(readfile, data);
-}
-
-size_t Reflector::Encoding(const size_t index){
-	return data[index - 65];
 }
 
 /* Special_Wheel FUNCTION */
@@ -115,7 +107,10 @@ Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
 }
 
 size_t Special_Wheel::Encoding(const size_t index){
-	return this->next->Encoding(data[index - 65]);
+	if (this->next)
+		return this->next->Encoding(data[index - 65]);
+	if (this->previous)
+		return previous->Encoding(data[index - 65]);
 }
 
 void Special_Wheel::spin(){
@@ -123,5 +118,16 @@ void Special_Wheel::spin(){
 		next->spin();
 }
 
+/* Reflector FUNCTION */
 
+Reflector::Reflector(string file_name){
+	ifstream readfile(file_name.c_str(), ios::in);
+	if (!readfile) cout << file_name << " can't be opened!" << endl;
+	getline(readfile, data);
+}
+
+size_t Reflector::Encoding(const size_t index){
+	if (this->previous)
+		return previous->Encoding(data[index - 65]);
+}
 

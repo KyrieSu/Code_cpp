@@ -8,8 +8,7 @@ class Plugboard :public Enigma_Component{
 public:
 	Plugboard(std::string);
 	size_t Encoding(const size_t);
-private:
-	std::string data;
+	static bool direction;
 };
 
 class Wheel :public Enigma_Component{ //Roter I and Roter III
@@ -19,7 +18,6 @@ public:
 	size_t Encoding(const size_t);
 	void spin();
 private:
-	std::string data;
 	char start; 
 	char key;//to check spin()
 };
@@ -30,7 +28,6 @@ public:
 	size_t Encoding(const size_t);
 	void spin();
 private:
-	std::string data;
 	char start;
 	char key;
 };
@@ -39,9 +36,6 @@ class Reflector : public Enigma_Component{
 public:
 	Reflector(std::string);
 	size_t Encoding(const size_t);
-	void spin();
-private:
-	std::string data;
 };
 
 #endif

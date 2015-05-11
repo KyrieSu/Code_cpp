@@ -13,7 +13,7 @@ class Reflector;
 
 class Enigma_Files{
 public:
-	Enigma_Files();
+	Enigma_Files(){}
 	void Read_file(std::string);
 	void Write_file(std::string);
 	void Push(const char&); //push a character on the tail(end) of string
@@ -34,7 +34,8 @@ public:
 	char Input_signal(char);//Input a character and return a encoded one (use this function to invoke "Encoding" function)
 	void Link(Enigma_Component&);
 protected:
-	Enigma_Component *previos;
+	std::string data;
+	Enigma_Component *previous;
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const&) = 0;
 	void Read_table(std::string);//Read a mapping table from file to setup current component (It should be overrided by derived classes)
