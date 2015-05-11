@@ -44,7 +44,7 @@ Enigma_Component::Enigma_Component(){
 }
 
 char Enigma_Component::Input_signal(char c){
-	
+	return Plugboard::Encoding(c);
 }
 
 
@@ -127,7 +127,6 @@ Reflector::Reflector(string file_name){
 }
 
 size_t Reflector::Encoding(const size_t index){
-	if (this->previous)
 		return previous->Encoding(data[index - 65]);
 }
 

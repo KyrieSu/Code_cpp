@@ -3,8 +3,6 @@
 #include"s1031434_Enigma.h"
 using namespace std;
 
-/* 65~90 -> A~Z  
-   97~122 ->a~z */
 
 int main(){
 	Enigma_Files wheel_start_file;

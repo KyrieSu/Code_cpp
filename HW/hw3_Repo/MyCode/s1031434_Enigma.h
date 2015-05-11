@@ -8,7 +8,6 @@ class Plugboard :public Enigma_Component{
 public:
 	Plugboard(std::string);
 	size_t Encoding(const size_t);
-	static bool direction;
 };
 
 class Wheel :public Enigma_Component{ //Roter I and Roter III
