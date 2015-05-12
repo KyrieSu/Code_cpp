@@ -34,10 +34,12 @@ public:
 	void Link(Enigma_Component&);
 protected:
 	std::string data;
+	int timer;
+	char key;
+	char start;
 	Enigma_Component *previous;
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const) = 0;
-	void Read_table(std::string);//Read a mapping table from file to setup current component (It should be overrided by derived classes)
 	virtual void spin() {}//Spin current component (It should be overrided by derived classes)
 };
 

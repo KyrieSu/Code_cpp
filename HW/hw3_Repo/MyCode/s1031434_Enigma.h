@@ -1,7 +1,6 @@
 #ifndef _Enigma_Wheel_H
 #define _Enigma_wheel_H
 
-#include"s1031434_EnigmaBase.h"
 #include<string>
 
 class Plugboard :public Enigma_Component{
@@ -16,9 +15,8 @@ public:
 	Wheel(std::string,char,char);
 	size_t Encoding(const size_t);
 	void spin();
-private:
-	char start; 
-	char key;//to check spin()
+protected:
+	int timer;
 };
 
 class Special_Wheel : public Wheel{
@@ -26,9 +24,6 @@ public:
 	Special_Wheel(std::string, char, char);
 	size_t Encoding(const size_t);
 	void spin();
-private:
-	char start;
-	char key;
 };
 
 class Reflector : public Enigma_Component{
