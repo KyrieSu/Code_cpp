@@ -85,24 +85,14 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 	key = arrow;
 }
 
-size_t Wheel::Encoding(const size_t index){//Y=89 C=67 Z=90
+size_t Wheel::Encoding(const size_t index){
 	if (!timer){
 		timer = 1;
-		char my_encode = this->data[index - 65];//Q=81 M=77
-		size_t between = 0;
-		if (next->start < this->start) between = (next->start + 26) - this->start;
-		else between = next->start - this->start;
-		size_t next_location = my_encode + between;
-		return next->Encoding(next_location % 91);
+		char add_code = this->data[index - 65];
+
 	}
 	if (timer){
 		timer = 0;
-		char my_encode = data[index - 65];//J=74
-		size_t between = 0;
-		if (previous->start > this->start) between = previous->start - this->start;
-		else between = this->start - previous->start;
-		size_t next_location = my_encode - between;//70
-		return previous->Encoding(next_location % 91);
 	}
 }
 
@@ -126,23 +116,12 @@ Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
 	key = arrow;
 }
 
-size_t Special_Wheel::Encoding(const size_t index){//index=86 //index=70=F
+size_t Special_Wheel::Encoding(const size_t index){
 	if (!timer){
 		timer = 1;
-		char my_encode = this->data[index - 65];//Y=89
-		size_t between = 0;
-		if (next->start < this->start) between = (next->start + 26) - this->start;
-		else between = next->start - this->start;
-		size_t next_location = my_encode + between;
-		return next->Encoding(next_location % 91);
 	}
 	if (timer){
 		timer = 0;
-		size_t pos = data.find((char)index);
-		size_t between = 0;
-		if (previous->start < this->start) between = (previous->start + 26) - this->start;
-		else between = previous->start - this->start;
-		
 	}
 }
 
@@ -164,13 +143,8 @@ Reflector::Reflector(string file_name){
 	start = 'A';
 }
 
-size_t Reflector::Encoding(const size_t index){//F=70
-	char my_encode = data[index - 65];//S=83
-	size_t between = 0;
-	if (previous->start < this->start) between = (previous->start + 26) - this->start;
-	else between = previous->start - this->start;
-	size_t next_location = my_encode + between;//90
-	return previous->Encoding(next_location % 91);
+size_t Reflector::Encoding(const size_t index){
+	
 }
 
 
