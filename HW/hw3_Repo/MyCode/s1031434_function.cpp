@@ -66,8 +66,16 @@ Plugboard::Plugboard(string file_name){
 }
 
 size_t Plugboard::Encoding(const size_t index){
-	next->spin();
-	return this->next->Encoding(next->start);
+	if (!timer){
+		timer = 1;
+		next->spin();
+		return this->next->Encoding(next->start % 65);
+	}
+	if (timer){
+		timer = 0;
+		return Encoding(next->start);
+	}
+	
 }
 
 /* Wheel FUNCTION */
@@ -88,11 +96,17 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 size_t Wheel::Encoding(const size_t index){
 	if (!timer){
 		timer = 1;
-		char add_code = this->data[index - 65];
-
+		char add_code = this->data[index];
+		//Distance -> add_code - pos
+		return this->next->Encoding();
 	}
 	if (timer){
 		timer = 0;
+		size_t pos = start + index;
+		char ch = pos % 91;
+		int a = data.find(ch);
+		int b = start - 65;
+		return this->previous->Encoding(abs(a - b));
 	}
 }
 
@@ -119,9 +133,18 @@ Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
 size_t Special_Wheel::Encoding(const size_t index){
 	if (!timer){
 		timer = 1;
+		size_t pos = (start + index) % 91;
+		char add_code = this->data[pos];
+		//Distance -> add_code - pos
+		return this->next->Encoding();
 	}
 	if (timer){
 		timer = 0;
+		size_t pos = start + index;
+		char ch = pos % 91;
+		int a = data.find(ch);
+		int b = start - 65;
+		return this->previous->Encoding(abs(a - b));
 	}
 }
 
@@ -144,7 +167,9 @@ Reflector::Reflector(string file_name){
 }
 
 size_t Reflector::Encoding(const size_t index){
-	
+	char add_code = data[index];
+	size_t pos = add_code - start;
+	return this->previous->Encoding(pos);
 }
 
 
