@@ -12,13 +12,13 @@ int main(){
 
 	std::cout << "Read original message: \"original_data.txt\"" << std::endl;
 	original_message_file.Read_file("original_data.txt");
-
+	cout << "Step#2" << endl;
 	std::cout << "Read arrows position of [Rotor]: \"wheel_web_arrow.txt\"" << std::endl;
 	wheel_arrow_file.Read_file("wheel_web_arrow.txt");
 	char wheel_0_arrows = wheel_arrow_file[0];
 	char wheel_1_arrows = wheel_arrow_file[1];
 	char wheel_2_arrows = wheel_arrow_file[2];
-
+	cout << "Step#3" << endl;
 	std::cout << "Read start position of [Rotor]: \"wheel_web_start.txt\"" << std::endl;
 	wheel_start_file.Read_file("wheel_web_start.txt");
 

@@ -84,7 +84,7 @@ size_t Plugboard::Encoding(const size_t index){
 			location -= this->start;
 		else
 			location = this->start - location;
-		return Encoding(location + 65);
+		return Enigma_Component::Input_signal(location + 65);
 	}	
 }
 
