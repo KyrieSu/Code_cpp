@@ -41,9 +41,12 @@ size_t Enigma_Files::Length(){
 
 /* Enigma_Component FUNCTION */
 
+
 Enigma_Component::Enigma_Component(){
 	this->previous = NULL;
 	this->next = NULL;
+	ifstream readfile("Plugboard.txt", ios::in);
+	getline(readfile, read_table);
 }
 
 char Enigma_Component::Input_signal(char c){
@@ -67,12 +70,14 @@ Plugboard::Plugboard(string file_name){
 	start = 'A';
 }
 
-size_t Plugboard::Encoding(const size_t index){
+size_t Plugboard::Encoding(const size_t index){//89
 	if (!timer){
 		timer = 1;
 		next->spin();
 		char en_code = data[index - 65];
+		//cout << en_code <<"Plugboard#1"<< endl;
 		size_t pos = en_code - start;
+		//cout << pos << "plugboard#pos" << endl;
 		return this->next->Encoding(pos);
 	}
 	if (timer){
@@ -80,11 +85,13 @@ size_t Plugboard::Encoding(const size_t index){
 		char back_code = start + index;
 		if (back_code > 90) back_code -= 26;
 		size_t location = data.find(back_code) + 65;
+		size_t pos = 0;
 		if (location > this->start)
-			location -= this->start;
+			pos = location - this->start;
 		else
-			location = this->start - location;
-		return Enigma_Component::Input_signal(location + 65);
+			pos = this->start - location;
+		if (this->start > location) pos = 26 - pos;
+		return pos + 65;
 	}	
 }
 
@@ -99,7 +106,8 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 	readfile.close();
 
 	timer = 0;
-	start = begin; 
+	start = begin;
+	now = begin;
 	key = arrow;
 }
 
@@ -108,31 +116,38 @@ size_t Wheel::Encoding(const size_t index){
 		timer = 1;
 		size_t pos = this->start + index;
 		if (pos > 90) pos -= 26;
+		//cout << pos << "Wheel#pos" << endl;
 		char add_code = data[pos - 65];
+		//cout << add_code << "Wheel#1" << endl;
+		size_t D = 0;
 		if (add_code > this->start)
-			pos = add_code - this->start;
+			D = add_code - this->start;
 		else
-			pos = this->start - add_code;
-		return next->Encoding(pos);
+			D = this->start - add_code;
+		if (this->start > add_code)	D = 26 - D;
+		return 	next->Encoding(D);
 	}
 	if (timer){
 		timer = 0;
 		char back_code = start + index;
 		if (back_code > 90) back_code -= 26;
 		size_t location = data.find(back_code) + 65;
+		//cout << (char)location << "Wheel#2" << endl;
+		size_t pos = 0;
 		if (location > this->start)
-			location -= this->start;
+			pos = location - this->start;
 		else
-			location = this->start - location;
-		return previous->Encoding(location);
+			pos = this->start - location;
+		if (this->start > location) pos = 26 - pos;
+		return previous->Encoding(pos);		
 	}
 }
 
 void Wheel::spin(){
 	start++;
-	start = start > 90 ? start - 26 /* 90 - 65 - 1 */: start;
-	if (start == key)
-		this->next->spin();
+	if (start > 90) start -= 26;
+	if (start == now)
+		next->spin();
 }
 
 /* Special_Wheel FUNCTION */
@@ -149,35 +164,43 @@ Special_Wheel::Special_Wheel(string file_name, char begin, char arrow){
 }
 
 size_t Special_Wheel::Encoding(const size_t index){
-	if (!timer){
-		timer = 1;
-		size_t pos = this->start + index;
-		if (pos > 90) pos -= 26;
-		char add_code = data[pos - 65];
-		if (add_code > this->start)
-			pos = add_code - this->start;
-		else
-			pos = this->start - add_code;
-		return next->Encoding(pos);
-	}
+		if (!timer){
+			timer = 1;
+			size_t pos = this->start + index;
+			if (pos > 90) pos -= 26;
+			char add_code = data[pos - 65];
+			//cout << add_code << "Special#1" << endl;
+			size_t D = 0;
+			if (add_code > this->start)
+				D = add_code - this->start;
+			else
+				D = this->start - add_code;
+			if (this->start > add_code)	D = 26 - D;
+			return 	next->Encoding(D);
+		}
 	if (timer){
 		timer = 0;
 		char back_code = start + index;
 		if (back_code > 90) back_code -= 26;
 		size_t location = data.find(back_code) + 65;
+		//cout << (char)location << "Special#2" << endl;
+		size_t pos = 0;
 		if (location > this->start)
-			location -= this->start;
+			pos = location - this->start;
 		else
-			location = this->start - location;
-		return previous->Encoding(location);
+			pos = this->start - location;
+		if (this->start > location) pos = 26 - pos;
+		return previous->Encoding(pos);
 	}
 }
 
 void Special_Wheel::spin(){
 	start++;
-	start = start > 90 ? start - 26 /* 90 - 65 - 1 */ : start;
+	if (start > 90) start -= 26;
 	if (start == key)
-		this->next->spin();
+		this->spin();
+	if (start == now)
+		next->spin();
 }
 
 /* Reflector FUNCTION */
@@ -195,10 +218,8 @@ size_t Reflector::Encoding(const size_t index){
 	size_t pos = this->start + index;
 	if (pos > 90) pos -= 26;
 	char add_code = data[pos - 65];
-	if (add_code > this->start)
-		pos = add_code - this->start;
-	else
-		pos = this->start - add_code;
+	//cout << add_code << "Reflector" << endl;
+	pos = add_code - start;
 	return previous->Encoding(pos);
 }
 
