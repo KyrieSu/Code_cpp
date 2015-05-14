@@ -142,10 +142,9 @@ size_t Wheel::Encoding(const size_t index){
 }
 
 void Wheel::spin(){
-	char special_case = start;
 	start++;
 	if (start > 90) start -= 26;
-	if (Special && ++special_case == start){
+	if (Special){
 		next->spin();
 		Special = false;
 	}
