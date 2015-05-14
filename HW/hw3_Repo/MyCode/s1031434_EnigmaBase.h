@@ -37,14 +37,11 @@ protected:
 	int timer;
 	char key;
 	char start;
-	std::string read_table;
 	Enigma_Component *previous;
 	Enigma_Component *next;
 	virtual size_t Encoding(size_t const) = 0;
 	virtual void spin() {}//Spin current component (It should be overrided by derived classes)
 };
-
-
 
 
 #endif

@@ -45,8 +45,6 @@ size_t Enigma_Files::Length(){
 Enigma_Component::Enigma_Component(){
 	this->previous = NULL;
 	this->next = NULL;
-	ifstream readfile("Plugboard.txt", ios::in);
-	getline(readfile, read_table);
 }
 
 char Enigma_Component::Input_signal(char c){
@@ -146,8 +144,8 @@ size_t Wheel::Encoding(const size_t index){
 void Wheel::spin(){
 	start++;
 	if (start > 90) start -= 26;
-	if (start == now)
-		next->spin();
+	if (start == key)
+		next->spin();	
 }
 
 /* Special_Wheel FUNCTION */
@@ -198,8 +196,6 @@ void Special_Wheel::spin(){
 	start++;
 	if (start > 90) start -= 26;
 	if (start == key)
-		this->spin();
-	if (start == now)
 		next->spin();
 }
 
@@ -222,6 +218,3 @@ size_t Reflector::Encoding(const size_t index){
 	pos = add_code - start;
 	return previous->Encoding(pos);
 }
-
-
-
