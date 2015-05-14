@@ -2,12 +2,13 @@
 #include<fstream>
 #include<string>
 #include<cstdlib>
-#include<cmath>
 #include"s1031434_EnigmaBase.h"
 #include"s1031434_Enigma.h"
 using namespace std;
 
 /* Enigma_File FUNCTION */
+
+bool Special = false;
 
 void Enigma_Files::Read_file(string file_name){
 	ifstream readfile(file_name.c_str(), ios::in);
@@ -105,7 +106,6 @@ Wheel::Wheel(string file_name,char begin,char arrow){
 
 	timer = 0;
 	start = begin;
-	now = begin;
 	key = arrow;
 }
 
@@ -142,10 +142,17 @@ size_t Wheel::Encoding(const size_t index){
 }
 
 void Wheel::spin(){
+	char special_case = start;
 	start++;
 	if (start > 90) start -= 26;
+	if (Special && ++special_case == start){
+		next->spin();
+		Special = false;
+	}
+		
 	if (start == key)
-		next->spin();	
+		next->spin();
+	
 }
 
 /* Special_Wheel FUNCTION */
@@ -197,6 +204,8 @@ void Special_Wheel::spin(){
 	if (start > 90) start -= 26;
 	if (start == key)
 		next->spin();
+	if (start == 'E')
+		Special = true;
 }
 
 /* Reflector FUNCTION */

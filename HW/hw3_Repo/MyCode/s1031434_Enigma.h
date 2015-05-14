@@ -16,8 +16,8 @@ public:
 	size_t Encoding(const size_t);
 	void spin();
 protected:
-	char now;
 	int timer;
+	int count;
 };
 
 class Special_Wheel : public Wheel{
