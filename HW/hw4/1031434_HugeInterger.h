@@ -18,11 +18,11 @@ public:
 	bool operator!= (const HugeInterger&);
 	bool operator>(const HugeInterger&);
 	bool operator<(const HugeInterger&);
-	HugeInterger operator+(const HugeInterger&);
-	HugeInterger operator-(const HugeInterger&);
-	HugeInterger operator*(const HugeInterger&);
-	HugeInterger operator/(const HugeInterger&);
-	HugeInterger operator%(const HugeInterger&);
+	void operator+(const HugeInterger&);
+	void operator-(const HugeInterger&);
+	void operator*(const HugeInterger&);
+	void operator/(const HugeInterger&);
+	void operator%(const HugeInterger&);
 private:
 	Vector data;
 };

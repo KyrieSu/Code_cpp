@@ -57,10 +57,10 @@ int main()
 	HugeInterger n4 = HugeInterger::zero();
 	cout << "N4: " << n4 << endl;
 
-	cout << "N1 + N3 = " << n1 + n3 << endl;
+	/*cout << "N1 + N3 = " << n1 + n3 << endl;
 	cout << "N2 - N3 = " << n2 - n3 << endl;
 	cout << "N1 * N4 = " << n1 * n4 << endl;
-	cout << "N4 = N2 + N3 * N1 = " << (n4 = n2 + n3 * n1) << endl;
+	cout << "N4 = N2 + N3 * N1 = " << (n4 = n2 + n3 * n1) << endl;*/
 
 	cout << endl << "Let N1 = N2, then..." << endl;
 	n1 = n2;
@@ -73,7 +73,7 @@ int main()
 	if (n1 < n3)
 		cout << "N1 is smaller than N3" << endl;
 
-	cout << "N4 / N2 = " << n4 / n2 << endl;
+	/*cout << "N4 / N2 = " << n4 / n2 << endl;
 	HugeInterger n5;
 	cout << "N5 = N4 % N2 = " << (n5 = n4 % n2) << endl;
 
@@ -81,7 +81,7 @@ int main()
 	cout << "N1: " << n1 << endl;
 	cout << "N2: " << n2 << endl;
 	cout << "N3: " << n3 << endl;
-	cout << "N4: " << n4 << endl;
+	cout << "N4: " << n4 << endl;*/
 
 	system("PAUSE");
 	return 0;

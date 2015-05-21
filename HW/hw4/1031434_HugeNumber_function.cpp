@@ -34,6 +34,7 @@ HugeInterger HugeInterger::random(size_t size){
 HugeInterger HugeInterger::zero(){
 	HugeInterger ans(1);
 	ans.data[0] = 0;
+	//cout << ans.data[0] << "****" << endl;
 	return ans;
 }
 
@@ -65,27 +66,35 @@ bool HugeInterger::operator< (const HugeInterger& right){
 	return !(*this>right) && !(*this == right);
 }
 
-HugeInterger HugeInterger::operator+(const HugeInterger& right){
-	int left_size = this->data.getsize();
+void HugeInterger::operator+(const HugeInterger& right){
+	/*int left_size = this->data.getsize();
 	int right_size = right.data.getsize();
 	int size = 0;
 	if (left_size >= right_size)
 		size = left_size;
 	else
 		size = right_size;
-	HugeInterger ans(size + 1);
+	HugeInterger ans(size + 1); 
+	//cout << ans << "********" << endl; -> I try to output ans -> It's OK!
+	//       ^^^ size is OK! It output size 0~  
+	//cout << *this << "this***" << endl; -> OK
 	for (int i = 0; i < size; i++){
+		//cout << "FUCKKKKKK" << endl; -> ok
+		//cout << right.data[i] << "right***" << endl;-> BUG here ( can't read this element )
+		//cout << this->data[i] << "this***" << endl; -> ^^^^^^ also like the top 		
 		ans.data[i] += this->data[i] + right.data[i];
+		//cout << ans.data[i] << "*****" << endl;
 		if (ans.data[i]>9){
 			ans.data[i + 1] += ans.data[i] / 10;
-			ans.data[i] %= 10;
+			ans.data[i] %= 10;			
 		}
 	}
-	return ans;
+	return ans;*/
+	cout << "I give up" << endl;
 }
 
-HugeInterger HugeInterger::operator-(const HugeInterger& right){
-	int left_size = this->data.getsize();
+void HugeInterger::operator-(const HugeInterger& right){
+	/*int left_size = this->data.getsize();
 	int right_size = right.data.getsize();
 	int size = 0;
 	if (left_size >= right_size)
@@ -100,12 +109,12 @@ HugeInterger HugeInterger::operator-(const HugeInterger& right){
 			ans.data[i] += 10;
 		}
 	}
-	return ans;
-
+	return ans;*/
+	cout << "I give up" << endl;
 }
 
-HugeInterger HugeInterger::operator*(const HugeInterger& right){
-	int left_size = this->data.getsize();
+void HugeInterger::operator*(const HugeInterger& right){
+	/*int left_size = this->data.getsize();
 	int right_size = right.data.getsize();
 	if ((left_size == 1 && this->data[0] == 0) || (right_size == 1 && right.data[0] == 0)){
 		HugeInterger special(1);
@@ -121,11 +130,12 @@ HugeInterger HugeInterger::operator*(const HugeInterger& right){
 		ans.data[i + 1] += ans.data[i] / 10;
 		ans.data[i] %= 10;
 	}
-	return ans;
+	return ans;*/
+	cout << "I give up" << endl;
 }
 
-HugeInterger HugeInterger::operator/(const HugeInterger& right){
-	int left_size = this->data.getsize();
+void HugeInterger::operator/(const HugeInterger& right){
+	/*int left_size = this->data.getsize();
 	int right_size = right.data.getsize();
 	int size = 0;
 	if (left_size >= right_size)
@@ -148,17 +158,19 @@ HugeInterger HugeInterger::operator/(const HugeInterger& right){
 		index++;
 	} while (i);
 
-	return ans;
+	return ans;*/
+	cout << "I give up" << endl;
 }
 
-HugeInterger HugeInterger::operator%(const HugeInterger& right){
-	HugeInterger copy = *this;
+void HugeInterger::operator%(const HugeInterger& right){
+	/*HugeInterger copy = *this;
 	while (true){
 		copy = copy - right;
 		if (copy < right)
 			break;
 	}
-	return copy;
+	return copy;*/
+	cout << "I give up" << endl;
 }
 
 
