@@ -28,7 +28,7 @@ Vector::Vector(size_t n,const int value){
 	else{
 		size = 0;
 		capacity = 10;
-		ptr = new int{ 0 };
+		ptr = new int(0);
 	}
 }
 
