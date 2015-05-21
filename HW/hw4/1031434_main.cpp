@@ -26,7 +26,7 @@ int main()
 	cout << "capacity of C(shrinked) = " << C.getCapacity(); // capacity of C(shrinked) = 6
 
 	int myarray[] = { 2, 4, 63 };
-	C.insert((C.begin() + 2), myarray, myarray + 2); // (add 2 & 4)
+	C.insert((C.begin() + 2), myarray, myarray + 1); // (add 2 & 4)
 		cout << "(inserted)C = " << C; //(inserted)C = "3 7 2 4 5 9 10 11"
 
 	C.erase(C.begin(), C.begin() + 5); // (remove 3 7 2 4 5)

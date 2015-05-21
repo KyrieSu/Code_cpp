@@ -7,7 +7,7 @@ class Vector{
 	friend std::ostream& operator<<(std::ostream&, const Vector&);
 public:
 	Vector(size_t = 0, const int = 0);
-	Vector(int, int);
+	Vector(int*, int*);
 	Vector(const Vector&);
 	~Vector();
 	const Vector& operator=(const Vector&);
