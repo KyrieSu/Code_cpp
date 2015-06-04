@@ -17,7 +17,7 @@ Vertex::Vertex(const float inX, const float inY){
 	y = inY;
 }
 void Vertex::print(){
-	cout << "(" << x << "," << y << ")";
+	cout << "(" << x << "," << y << ")" << endl;
 }
 	/* shape Function */
 shape::shape(){
@@ -39,6 +39,7 @@ ShapeType shape::getShape(){
 }
 
 void shape::print(){
+	cout << "TYPE: " << ShapeName[currentType] << endl;
 	for (size_t i = 0; i < V.size(); i++)
 		V[i].print();
 }

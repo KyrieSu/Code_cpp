@@ -47,4 +47,48 @@ namespace MIME{
 		//bool Convex();
 	};
 
+	class Parallelogram :public Quadrilateral{
+	public:
+		Parallelogram();
+		float area();
+		bool Valid();
+		//bool Convex();
+	};
+
+	class Square :public Parallelogram{
+	public:
+		Square();
+		float area();
+		bool Valid();
+		//bool Convex();
+	};
+
+	class Trapezium :public Quadrilateral{
+	public:
+
+	};
+
+	class Isosceles_triangle :public Triangle{
+	public:
+
+	};
+
+	class Regular_triangle :public Isosceles_triangle{
+	public:
+
+	};
+
+	class Right_triangle :public Triangle{
+	public:
+
+	};
+
+	class Polygon :public shape{
+	public:
+		Polygon();
+		float area();
+		bool Valid();
+		//bool Convex();
+	};
+
 }

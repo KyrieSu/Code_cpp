@@ -51,13 +51,65 @@ int loadshape(string file){
 			}
 			num++;
 			break;
-		case Parallelogram:break;
-		case Square:break;
-		case Trapezium:break;
-		case Isosceles_triangle:break;
-		case Regular_triangle:break;
-		case Right_triangle:break;
-		case Polygon:break;
+		case Parallelogram:
+			cout << "[LOADER] add : Parallelogram" << endl;
+			data.push_back(new MIME::Parallelogram());
+			for (int i = 0; i < 4; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Square:
+			cout << "[LOADER] add : Square" << endl;
+			data.push_back(new MIME::Square());
+			for (int i = 0; i < 4; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Trapezium:
+			cout << "[LOADER] add : Trapezium" << endl;
+			data.push_back(new MIME::Trapezium());
+			for (int i = 0; i < 4; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Isosceles_triangle:
+			cout << "[LOADER] add : Isosceles_triangle" << endl;
+			data.push_back(new MIME::Isosceles_triangle());
+			for (int i = 0; i < 3; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Regular_triangle:
+			cout << "[LOADER] add : Regular_triangle" << endl;
+			data.push_back(new MIME::Regular_triangle());
+			for (int i = 0; i < 3; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Right_triangle:
+			cout << "[LOADER] add : Right_triangle" << endl;
+			data.push_back(new MIME::Right_triangle());
+			for (int i = 0; i < 3; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
+		case Polygon:
+			cout << "[LOADER] add : Right_triangle" << endl; 
+			data.push_back(new MIME::Polygon());
+			/* input information into Polygon */
+			break;
 		}//end switch
 
 	}//end for-loop
