@@ -27,10 +27,30 @@ int loadshape(string file){
 		case Triangle:
 			cout << "[LOADER] add : Triangle" << endl;
 			data.push_back(new MIME::Triangle());
+			for (int i = 0; i < 3; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}			
 			num++;
 			break;
-		case Quadrilateral:break;
+		case Quadrilateral:
+			cout << "[LOADER] add : Quadrilateral" << endl;
+			data.push_back(new MIME::Quadrilateral());
+			for (int i = 0; i < 4; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
 		case Pentagon:break;
+			cout << "[LOADER] add : Pentagon" << endl;
+			data.push_back(new MIME::Pentagon());
+			for (int i = 0; i < 5; i++){
+				readfile >> myX >> myY;
+				(data.back())->addVertex(myX, myY);
+			}
+			num++;
+			break;
 		case Parallelogram:break;
 		case Square:break;
 		case Trapezium:break;
@@ -55,7 +75,7 @@ int main()
 		ptr->print();
 		cout << "AREA: " << ptr->area() << endl;
 		cout << "Valid ? : " << (ptr->Valid() ? "YES" : "NO") << endl;
-		//cout << "Convex ? : " << (ptr->Convex() ? "YES" : "NO") << endl << endl;
+		//cout << "Convex ? : " << (ptr->Convex() ? "YES" : "NO") << endl << endl; -> §PÂ_¥W¥Y
 	}
 	for each (MIME::shape* ptr in data)
 		delete ptr;

@@ -24,9 +24,24 @@ namespace MIME{
 		ShapeType currentType;
 		std::vector<Vertex> V;
 	};
-	class Triangle:public shape{
+	class Triangle :public shape{
 	public:
 		Triangle();
+		float area();
+		bool Valid();
+		//bool Convex();
+	};
+
+	class Quadrilateral :public shape{
+	public:
+		Quadrilateral();
+		float area();
+		bool Valid();
+		//bool Convex();
+	};
+	class Pentagon :public shape{
+	public:
+		Pentagon();
 		float area();
 		bool Valid();
 		//bool Convex();
