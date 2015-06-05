@@ -105,11 +105,11 @@ int loadshape(string file){
 			}
 			num++;
 			break;
-		case Polygon:
+		/*case Polygon:
 			cout << "[LOADER] add : Right_triangle" << endl; 
 			data.push_back(new MIME::Polygon());
 			/* input information into Polygon */
-			break;
+			//break;
 		}//end switch
 
 	}//end for-loop
