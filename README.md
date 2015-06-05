@@ -1,15 +1,14 @@
-Things  To  Do
-==============
 
 
-### Algorithm
+ Algorithm
+===============
 
-  * 建樹:Binary Tree, Heap (AVL Tree, Segment Tree)
-  * 建圖:Adjacency matrix, Adjacency list, (Spanning Tree)
-  * 搜索:DFS, BFS
-  * 最短路徑:Kruskal, (Prim, Sollin)
-  * 其他:DP(Dynamic Programming), Fast Pow
-  * 字串:Hashing, KMP(用於比較字串), (AC automation)
+  ###建樹:Binary Tree, Heap (AVL Tree, Segment Tree)
+  ###建圖:Adjacency matrix, Adjacency list, (Spanning Tree)
+  ###搜索:DFS, BFS
+  ###最短路徑:Kruskal, (Prim, Sollin)
+  ###其他:DP(Dynamic Programming), Fast Pow
+  ###字串:Hashing, KMP(用於比較字串), (AC automation)
 
 + Binary Tree:大部份是要加速搜索到O(log n)，也可以用來做排序，可以搭配搜索跟最短路徑演算法。
 + Heap:這是priority_queue的底層，可以隨時在O(log n)的時間內得到陣列的最大值(平常是O(n))，也可以進行sort
