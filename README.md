@@ -1,9 +1,15 @@
 Things  To  Do
 ==============
-- map example
-- set example
-- str2int & int2str (using sstream)
-- hello
+
+
+### Algorithm
+
+- 建樹:Binary Tree, Heap (AVL Tree, Segment Tree)
+- 建圖:Adjacency matrix, Adjacency list, (Spanning Tree)
+- 搜索:DFS, BFS
+- 最短路徑:Kruskal, (Prim, Sollin)
+- 其他:DP(Dynamic Programming), Fast Pow, (AC automation)
+- 字串:Hashing, KMP(用於比較字串)
 
 Websites
 ========
@@ -44,16 +50,6 @@ Course
 - STL : list (看狀況)
 - \<algorithm\>
 
-### 演算法
-
-- Binary Tree
-- Traversal - preorder , inorder , postorder
-- pow and fastpow (看狀況)
-- Segment Tree (略提)
-- Graph - Adjacency Matrix
-- Graph - Adjacency List (看狀況)
-- Traversal - BFS (看狀況)
-- Traversal - DFS (看狀況)
 
 ### 串流
 
