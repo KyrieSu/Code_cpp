@@ -3,7 +3,7 @@
  Algorithm
 ===============
 
-### 建樹:Binary Tree, Heap (AVL Tree, Segment Tree)
+### 建樹:Binary Tree, Heap, (AVL Tree, Segment Tree)
 ### 建圖:Adjacency matrix, Adjacency list, (Spanning Tree)
 ### 搜索:DFS, BFS
 ### 最短路徑:Kruskal, (Prim, Sollin)
