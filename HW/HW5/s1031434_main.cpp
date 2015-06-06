@@ -122,7 +122,7 @@ int loadshape(string file){
 int main()
 {
 	int NUMofSHAPE = loadshape("test_shape.txt");
-	cout << "# of shapes = " << NUMofSHAPE << endl;
+	cout << "# of shapes = " << NUMofSHAPE << endl << endl;
 
 	for each (MIME::shape* ptr in data){
 		ptr->print();
