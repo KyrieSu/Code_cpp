@@ -44,6 +44,12 @@ void shape::print(){
 	for (size_t i = 0; i < V.size(); i++)
 		V[i].print();
 }
+
+bool shape::Convex(){
+	/* http://xuelixue.cn/thread-14232-1-1.html */
+	return (V[0].x - V[2].x)*(V[1].y - V[2].y) - (V[0].y - V[2].y)*(V[1].x - V[2].x);
+}
+
 	/* Triangle Function */
 Triangle::Triangle(){
 	currentType = ShapeType::Triangle;
@@ -124,7 +130,7 @@ bool Parallelogram::Valid(){
 
 	/* Square Function */
 Square::Square(){
-	currentType == ShapeType::Square;
+	currentType = ShapeType::Square;
 }
 
 float Square::area(){
