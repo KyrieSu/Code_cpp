@@ -17,9 +17,10 @@ namespace MIME{
 		size_t addVertex(Vertex&);
 		ShapeType getShape();
 		void print();
+		bool Convex();
 		virtual float area() = 0;
 		virtual bool Valid() = 0;
-		//virtual bool Convex() = 0;
+		
 	protected:
 		ShapeType currentType;
 		std::vector<Vertex> V;
@@ -29,7 +30,6 @@ namespace MIME{
 		Triangle();
 		float area();
 		bool Valid();
-		//bool Convex();
 	};
 
 	class Quadrilateral :public shape{
@@ -37,22 +37,18 @@ namespace MIME{
 		Quadrilateral();
 		float area();
 		bool Valid();
-		//bool Convex();
 	};
 	class Pentagon :public shape{
 	public:
 		Pentagon();
 		float area();
 		bool Valid();
-		//bool Convex();
 	};
 
 	class Parallelogram :public Quadrilateral{
 	public:
 		Parallelogram();
-		float area();
 		bool Valid();
-		//bool Convex();
 	};
 
 	class Square :public Parallelogram{
@@ -60,27 +56,33 @@ namespace MIME{
 		Square();
 		float area();
 		bool Valid();
-		//bool Convex();
 	};
 
 	class Trapezium :public Quadrilateral{
 	public:
-
+		Trapezium();
+		float area();
+		bool Valid();
 	};
 
 	class Isosceles_triangle :public Triangle{
 	public:
-
+		Isosceles_triangle();
+		bool Valid();
 	};
 
 	class Regular_triangle :public Isosceles_triangle{
 	public:
-
+		Regular_triangle();
+		float area();
+		bool Valid();
 	};
 
 	class Right_triangle :public Triangle{
 	public:
-
+		Right_triangle();
+		float area();
+		bool Valid();
 	};
 
 	class Polygon :public shape{
@@ -88,7 +90,6 @@ namespace MIME{
 		Polygon();
 		float area();
 		bool Valid();
-		//bool Convex();
 	};
 
 }

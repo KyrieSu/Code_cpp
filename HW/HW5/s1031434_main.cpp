@@ -17,32 +17,33 @@ int loadshape(string file){
 		exit(1);
 	}
 	int num = 0;//to count the number of shape
-	for (int n = 0; !readfile.eof();){
+	for (int n; !readfile.eof();){
 		readfile >> n;
+		//cout << n << "***n" << endl;
 		float myX, myY;
 		switch ((ShapeType)n){
 		case Shape:
 			cout << "[LOADER] invalde abstract type: Shape" << endl;
 			return num;
 		case Triangle:
-			cout << "[LOADER] add : Triangle" << endl;
+			 cout << "[LOADER] add : Triangle" << endl;
 			data.push_back(new MIME::Triangle());
 			for (int i = 0; i < 3; i++){
 				readfile >> myX >> myY;
 				(data.back())->addVertex(myX, myY);
-			}			
+				}
 			num++;
 			break;
 		case Quadrilateral:
 			cout << "[LOADER] add : Quadrilateral" << endl;
 			data.push_back(new MIME::Quadrilateral());
 			for (int i = 0; i < 4; i++){
-				readfile >> myX >> myY;
+				 readfile >> myX >> myY;
 				(data.back())->addVertex(myX, myY);
-			}
-			num++;
-			break;
-		case Pentagon:break;
+				}
+				num++;
+				break; 
+		case Pentagon:
 			cout << "[LOADER] add : Pentagon" << endl;
 			data.push_back(new MIME::Pentagon());
 			for (int i = 0; i < 5; i++){
@@ -105,11 +106,11 @@ int loadshape(string file){
 			}
 			num++;
 			break;
-		case Polygon:
+		/*case Polygon:
 			cout << "[LOADER] add : Right_triangle" << endl; 
 			data.push_back(new MIME::Polygon());
-			/* input information into Polygon */
-			break;
+			string str;
+			break;*/
 		}//end switch
 
 	}//end for-loop
@@ -121,13 +122,13 @@ int loadshape(string file){
 int main()
 {
 	int NUMofSHAPE = loadshape("test_shape.txt");
-	cout << "# of shapes = " << NUMofSHAPE << endl;
+	cout << "# of shapes = " << NUMofSHAPE << endl << endl;
 
 	for each (MIME::shape* ptr in data){
 		ptr->print();
 		cout << "AREA: " << ptr->area() << endl;
 		cout << "Valid ? : " << (ptr->Valid() ? "YES" : "NO") << endl;
-		//cout << "Convex ? : " << (ptr->Convex() ? "YES" : "NO") << endl << endl; -> §PÂ_¥W¥Y
+		cout << "Convex ? : " << (ptr->Convex() ? "YES" : "NO") << endl << endl; //-> §PÂ_¥W¥Y
 	}
 	for each (MIME::shape* ptr in data)
 		delete ptr;
