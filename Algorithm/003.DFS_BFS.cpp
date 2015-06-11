@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstring>
 #include<queue>
 #include<stack>
 using namespace std ;
