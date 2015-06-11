@@ -7,7 +7,7 @@ using namespace std ;
 // use stack to do DFS
 void DFS(int N, int start, vector<int> road[]){
 	bool visited[N] ;
-	memset(visited, false, N) ; // all unvisited
+	memset(visited, false, N) ; // to set every dots are all unvisited
 	stack<int> s ;
 	s.push(start) ;
 	visited[start] = true ;
