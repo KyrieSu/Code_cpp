@@ -75,6 +75,7 @@ int main(){
 	}
 	DFS(N, start, road) ;
 	BFS(N, start, road) ;
+	delete [] road ;
 }
 
 /*
