@@ -41,6 +41,7 @@ int main(){
 
 	std::cout << "v1.dotProduct (v2): \n";
 	std::cout << v1.arr[0].dot(v2.arr[0]) << std::endl;
+
 	system("PAUSE");
 	return 0;
 }

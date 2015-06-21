@@ -6,8 +6,8 @@ class MartixBase{
 	friend std::ostream& operator<< (std::ostream&, MartixBase<RowSize, ColumnSize, Data_Type, Column_Type, Martix_Type>&);
 public:
 	Column_Type arr[RowSize];
-	Column_Type& operator [](size_t i)	{ return arr[i]; }
-	Column_Type& operator [](size_t i)const	{ return arr[i]; }
+	Column_Type& operator [](size_t i)	{ return this->arr[i]; }
+	Column_Type& operator [](size_t i)const	{ return this->arr[i]; }
 	size_t Row_num()const	{ return ColumnSize; }
 	size_t Col_num()const	{ return RowSize; }
 	size_t Row_size()const	{ return RowSize; }

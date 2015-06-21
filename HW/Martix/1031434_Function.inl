@@ -17,7 +17,7 @@ T2 _Transpose(const T1& m){
 	T2 num;
 	for (size_t i = 0; i < num.Column_size(); i++)
 		for (size_t j = 0; j < m.Column_size(); j++)
-			num.arr[j][i] = m[i][j];
+			num.arr[j][i] = m.arr[i][j];
 	return num;
 }
 
