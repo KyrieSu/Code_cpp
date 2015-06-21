@@ -1,40 +1,49 @@
 #include<cstdlib>
 #include<iostream>
 
-template <int Size, class DataType, class VectorType>
+template<int size,class Data_Type,class Vector_Type>
 class VectorBase{
+	template<int size, class Data_Type, class Vector_Type>
+	friend std::ostream& operator<< (std::ostream&, VectorBase< size, Data_Type, Vector_Type>& R);
 public:
-	DataType arr[Size];
-	DataType& operator[](size_t i)	{ return arr[i]; }
-	const DataType& operator[](size_t i)const	{ return arr[i]; }
-	VectorType& operator-()const{
-		VectorType num;
-		for (size_t i = 0; i < Size; i++)
-			num.arr[i] = -this->arr[i];
+	Data_Type arr[size];
+	Data_Type& operator [](size_t i)	{ return arr[i]; }
+	Data_Type& operator [](size_t i)const	{ return arr[i]; }
+	Vector_Type& operator -()const{
+		Vector_Type num;
+		for (size_t i = 0; i < size; i++)
+			num.arr[i] = this->arr[i] * (-1);
 		return num;
 	}
-	VectorType& operator+(const VectorType& right)const{
-		VectorType num;
-		for (size_t i = 0; i < Size; i++)
-			num.arr[i] = this->arr[i] + right.arr[i];
+	Vector_Type& operator +(const Vector_Type& m)const{
+		Vector_Type num;
+		for (size_t i = 0; i < size; i++)
+			num.arr[i] = this->arr[i] + m.arr[i];
 		return num;
 	}
-	VectorType& operator-(const VectorType& right)const{
-		VectorType num;
-		for (size_t i = 0; i < Size; i++)
-			num.arr[i] = this->arr[i] - right.arr[i];
+	Vector_Type& operator -(const Vector_Type& m)const{
+		Vector_Type num;
+		for (size_t i = 0; i < size; i++)
+			num.arr[i] = this->arr[i] - m.arr[i];
 		return num;
 	}
-	VectorType& operator*(const DataType& k)const{
-		VectorType num;
-		for (size_t i = 0; i < Size; i++)
-			num.arr[i] = (DataType)this->arr[i] * k;
+	Vector_Type& operator *(const Data_Type k)const{
+		Vector_Type num;
+		for (size_t i = 0; i < size; i++)
+			num.arr[i] = (Data_Type)this->arr[i] * k;
 		return num;
 	}
-	VectorType& operator/(const DataType k)const{
-		VectorType num;
-		for (size_t i = 0; i < Size; i++)
-			num.arr[i] = (DataType)this->arr[i] / k;
+	Vector_Type& operator /(const Data_Type k)const{
+		Vector_Type num;
+		for (size_t i = 0; i < size; i++)
+			num.arr[i] = (Data_Type)this->arr[i] / k;
 		return num;
 	}
 };
+
+template<int size, class Data_Type, class Vector_Type>
+friend std::ostream& operator<< (std::ostream& output, VectorBase< size, Data_Type, Vector_Type>& R){
+	for (size_t i = 0; i < size; i++)
+		output << R.arr[i] << "   ";
+	return output;
+}
