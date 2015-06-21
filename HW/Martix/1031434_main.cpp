@@ -1,8 +1,8 @@
 #include"1031434_Function.inl"
-#include"1031434_MartixBase.hpp"
+//#include"1031434_MartixBase.hpp"
 #include"1031434_Mat.hpp"
-#include"1031434_Vec.hpp"
-#include"1031434_VectorBase.hpp"
+//#include"1031434_Vec.hpp"
+//#include"1031434_VectorBase.hpp"
 
 int main(){
 	Mat_3x4<float> m1(Vec3<float>(2, 3, 4), Vec3<float>(1, 5, 7), Vec3<float>(2, 6, 2), Vec3<float>(1, 3, 9));

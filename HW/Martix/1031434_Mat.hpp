@@ -1,5 +1,6 @@
 #include"1031434_MartixBase.hpp"
 #include"1031434_Vec.hpp"
+#include"1031434_Function.inl"
 
 template <class T> class Mat_1x1;
 template <class T> class Mat_1x3;
@@ -139,4 +140,3 @@ public:
 	using MartixBase<4, 4, T, Vec4<T>, Mat_4x4<T> >::operator *;
 };
 
-#include"1031434_Function.inl"
