@@ -3,11 +3,7 @@
 
 template<int RowSize,int ColumnSize,class Data_Type,class Column_Type,class Martix_Type>
 class MartixBase{
-	friend std::ostream& operator<< (std::ostream&, MartixBase<RowSize, ColumnSize, Data_Type, Column_Type, Martix_Type>&){
-		for (size_t i = 0; i < RowSize; i++)
-			output << "col[" << i << "]¡G" << R.arr[i] << std::endl;
-		return output;
-	}
+	friend std::ostream& operator<< (std::ostream&, MartixBase<RowSize, ColumnSize, Data_Type, Column_Type, Martix_Type>&);
 public:
 	Column_Type arr[RowSize];
 	Column_Type& operator [](size_t i)	{ return this->arr[i]; }
@@ -55,9 +51,9 @@ public:
 	}
 };
 
-/*template<int RowSize, int ColumnSize, class Data_Type, class Column_Type, class Martix_Type>
+template<int RowSize, int ColumnSize, class Data_Type, class Column_Type, class Martix_Type>
 std::ostream& operator<< (std::ostream& output, MartixBase<RowSize, ColumnSize, Data_Type, Column_Type, Martix_Type>& R){
 	for (size_t i = 0; i < RowSize; i++)
 		output << "col[" << i << "]¡G" << R.arr[i] << std::endl;
 	return output;
-}*/
+}

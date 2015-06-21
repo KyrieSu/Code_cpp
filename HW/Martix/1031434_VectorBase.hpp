@@ -7,7 +7,7 @@ class VectorBase{
 public:
 	Data_Type arr[size];
 	Data_Type& operator [](size_t i)	{ return this->arr[i]; }
-	Data_Type& operator [](size_t i)const	{ return this->arr[i]; }
+	Data_Type operator [](size_t i)const{ return this->arr[i]; }
 	Vector_Type& operator -()const{
 		Vector_Type num;
 		for (size_t i = 0; i < size; i++)

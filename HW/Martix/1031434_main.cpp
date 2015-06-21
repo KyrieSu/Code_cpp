@@ -1,4 +1,4 @@
-#include"1031434_Function.inl"
+//#include"1031434_Function.inl"
 //#include"1031434_MartixBase.hpp"
 #include"1031434_Mat.hpp"
 //#include"1031434_Vec.hpp"
