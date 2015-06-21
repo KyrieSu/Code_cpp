@@ -3,8 +3,7 @@
 
 template<int size,class Data_Type,class Vector_Type>
 class VectorBase{
-	template<int size, class Data_Type, class Vector_Type>
-	friend std::ostream& operator<< (std::ostream&, VectorBase< size, Data_Type, Vector_Type>& R);
+	friend std::ostream& operator<< (std::ostream&, VectorBase<size, Data_Type, Vector_Type>&);
 public:
 	Data_Type arr[size];
 	Data_Type& operator [](size_t i)	{ return arr[i]; }
@@ -42,7 +41,7 @@ public:
 };
 
 template<int size, class Data_Type, class Vector_Type>
-friend std::ostream& operator<< (std::ostream& output, VectorBase< size, Data_Type, Vector_Type>& R){
+std::ostream& operator<< (std::ostream& output, VectorBase< size, Data_Type, Vector_Type>& R){
 	for (size_t i = 0; i < size; i++)
 		output << R.arr[i] << "   ";
 	return output;
