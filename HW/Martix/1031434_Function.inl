@@ -24,10 +24,10 @@ template <class T0, class T>
 T _Inverse(const T& m)
 {
 	T num;
-	for (size_t i = 0; i < Row_size(); i++)
-		for (size_t j = 0; j < Column_size(); j++){
+	for (size_t i = 0; i < m.Row_size(); i++)
+		for (size_t j = 0; j < m.Column_size(); j++){
 			num[i][j] = 0;
-			for (size_t k = 0; k < Column_size(); k++)
+			for (size_t k = 0; k < m.Column_size(); k++)
 				num.arr[i][j] += m.arr[i][k] * m.arr[k][j];
 		}
 	return num;
