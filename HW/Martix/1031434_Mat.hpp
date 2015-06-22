@@ -12,14 +12,14 @@ template <class T> class Mat_3x4;
 template <class T> class Mat_4x3;
 template <class T> class Mat_4x4;
 
-template <class T1, class T2, class T3> T3 Mul(const T1& left, const T2& right);
-template <class T1, class T2> T2 _Transpose(const T1& m);
-template <class T0, class T> T _Inverse(const T& m);
+template <class T1, class T2, class T3> T3 Mul(const T1&, const T2&);
+template <class T1, class T2> T2 _Transpose(const T1&);
+template <class T0, class T> T _Inverse(const T&);
 
 template<class T>
 class Mat_1x1 :public MartixBase<1, 1, T, Vec1<T>, Mat_1x1<T> >{
 public:
-	Mat_1x1(const Vec1<T>& x){ this->arr[0] = x; }
+	Mat_1x1 (const Vec1<T>& x)	{ this->arr[0] = x; }
 	Mat_1x1 Transpose()const	{ return _Transpose<Mat_1x1, Mat_1x1>(*this); }
 	Mat_1x1 Inverse()const	{ return _Inverse<T, Mat_1x1>(*this); }
 	Mat_1x1 operator *(const Mat_1x1& R)const	{ return Mul<Mat_1x1, Mat_1x1, Mat_1x1>(*this, R); }
@@ -29,7 +29,7 @@ public:
 	Mat_1x4<T> operator *(const Mat_1x4<T>& R)const{
 		return Mul<Mat_1x1, Mat_1x4<T>, Mat_1x4<T> >(*this, R);
 	}
-	using MartixBase<1, 1, T, Vec1<T>, Mat_1x1<T> >::operator*;
+	using MartixBase<1, 1, T, Vec1<T>, Mat_1x1<T> >::operator *;
 };
 
 template<class T>
@@ -48,7 +48,7 @@ public:
 	Mat_1x3 operator *(const Mat_3x3<T>& R)const {
 		return Mul<Mat_1x3, Mat_3x3<T>, Mat_1x3<T> >(*this, R);
 	}
-	using MartixBase<3, 1, T, Vec1<T>, Mat_1x3<T> >::operator*;
+	using MartixBase<3, 1, T, Vec1<T>, Mat_1x3<T> >::operator *;
 };
 
 template<class T>
@@ -61,7 +61,7 @@ public:
 	Mat_1x1<T> operator * (const Mat_4x1<T>& R)const	{ return Mul<Mat_1x4, Mat_4x1<T>, Mat_1x1<T> >(*this, R); }
 	Mat_1x3<T> operator * (const Mat_4x3<T>& R)const	{ return Mul<Mat_1x4, Mat_4x3<T>, Mat_1x3<T> >(*this, R); }
 	Mat_1x4 operator * (const Mat_4x4<T>& R)const	{ return Mul<Mat_1x4, Mat_4x4<T>, Mat_1x4>(*this, R); }
-	using MartixBase<4, 1, T, Vec1<T>, Mat_1x4<T> >::operator*;
+	using MartixBase<4, 1, T, Vec1<T>, Mat_1x4<T> >::operator *;
 };
 
 template <class T> 

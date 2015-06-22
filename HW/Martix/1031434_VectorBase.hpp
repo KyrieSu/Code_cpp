@@ -41,7 +41,7 @@ public:
 };
 
 template<int size, class Data_Type, class Vector_Type>
-std::ostream& operator<< (std::ostream& output, VectorBase< size, Data_Type, Vector_Type>& R){
+std::ostream& operator<< (std::ostream& output, VectorBase<size, Data_Type, Vector_Type>& R){
 	for (size_t i = 0; i < size; i++)
 		output << R.arr[i] << "   ";
 	return output;
