@@ -1,0 +1,2 @@
+std::cout << m1 << std::endl;  // error
+this->arr[x] is correct and arr[x] not found
