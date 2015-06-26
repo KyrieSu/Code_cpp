@@ -1,5 +1,5 @@
 #include<iostream>
-#include<algorithm>
+#include<string>
 using namespace std;
 
 #define Maxsize 10
@@ -8,12 +8,11 @@ class Stack{
 	friend ostream& operator<<(ostream& output,const Stack<T>& R){
 		for(int i=0;i<R.size();i++)
 			output<<R.data[i]<<" ";
+		output<<endl;
 		return output;
 	}
 public:
 	Stack(){
-		for(int i=0;i<Maxsize;i++)
-			this->data[i]=0;
 		length=-1;
 	}
 	Stack(const Stack<T>& R){
@@ -117,7 +116,7 @@ int main(){
 		A.push(i+1);
 	cout<<"Stack is empty ? : "<<(A.empty()?"Yes":"No")<<endl;
 	cout<<"Size of Stack is : "<<A.size()<<endl;
-	cout<<A<<endl;
+	cout<<A;
 	cout<<"-----Now add the 11th elements to test push-----"<<endl;
 	A.push(11);
 	int timer=A.size();
@@ -135,15 +134,23 @@ int main(){
 	
 	for(int i=0;i<Maxsize;i++)
 		A.push(i+1);
-	cout<<A<<endl;
+	cout<<A;
 	Stack<int> B(A);
-	cout<<B<<endl;
+	cout<<B;
 	timer=B.size();
 	for(int i=0;i<timer;i++)
 		B.pop();
 	for(int i=0;i<Maxsize;i++)
 		B.push(Maxsize-i);
-	cout<<B<<endl;
+	cout<<B;
+	cout<<"----- String Stack -----"<<endl;
+	Stack<string> C;
+	for(int i=0;i<Maxsize;i++)
+		C.push("Kyrie Irving");
+	cout<<C;
+	for(int i=0;i<5;i++)
+		C.pop();
+	cout<<C;
 	
 	return 0;
 }
