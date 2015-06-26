@@ -77,10 +77,10 @@ void Stack::swap(const Stack& R){
 	for(int i=0;i<R.size();i++)
 		arr[i]=R.data[i];
 	int len=R.length;
-	for(int i=0;i<this->size();i++)
+	for(int i=0;i<this->length;i++)
 		R.data[i]=this->data[i];
 	R.length=this->length;
-	for(int i=0;i<R.size();i++)
+	for(int i=0;i<len;i++)
 		this->data[i]=arr[i];
 	this->length=len;
 }
