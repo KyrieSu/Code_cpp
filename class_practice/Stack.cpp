@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 #define Maxsize 10
@@ -7,7 +8,7 @@ class Stack{
 public:
 	Stack();
 	Stack(const Stack&);
-	//void swap(); C++11
+	void swap(const Stack&); //C++11
 	int top()const;
 	int size()const;
 	bool empty()const;
@@ -36,7 +37,7 @@ Stack::Stack(){
 
 Stack::Stack(const Stack& R){
 	this->length=R.length;
-	for(int i=0;i<length;i++)
+	for(int i=0;i<R.size();i++)
 		this->data[i]=R.data[i];
 	ptr=(data+length);
 }
@@ -71,6 +72,18 @@ int Stack::top()const{
 	return data[length];
 }
 
+void Stack::swap(const Stack& R){
+	int arr[R.size()];
+	for(int i=0;i<R.size();i++)
+		arr[i]=R.data[i];
+	int len=R.length;
+	for(int i=0;i<this->size();i++)
+		R.data[i]=this->data[i];
+	R.length=this->length;
+	for(int i=0;i<R.size();i++)
+		this->data[i]=arr[i];
+	this->length=len;
+}
 
 
 int main(){
@@ -79,24 +92,41 @@ int main(){
 	cout<<"Stack is empty ? : "<<(A.empty()?"Yes":"No")<<endl;
 	cout<<"Size of Stack is : "<<A.size()<<endl;//0
 	/* add some elements */
-	for(int i=0;i<Maxsize;i++){
+	for(int i=0;i<Maxsize;i++)
 		A.push(i+1);
-		cout<<A.top()<<" ";
-	}
 	cout<<endl;	
 	cout<<"Stack is empty ? : "<<(A.empty()?"Yes":"No")<<endl;
 	cout<<"Size of Stack is : "<<A.size()<<endl;
 	cout<<A;
 	cout<<"-----Now add the 11th elements to test push-----"<<endl;
 	A.push(11);
-	for(int i=0;i<A.size();i++) // ->BUGGG
+	int timer=A.size();
+	for(int i=0;i<timer;i++){
 		A.pop();
+		cout<<A.top()<<" ";
+	}
+	cout<<endl;	
 	cout<<"Stack is empty ? : "<<(A.empty()?"Yes":"No")<<endl;//Yes
 	cout<<"Size of Stack is : "<<A.size()<<endl;//0
 	cout<<"-----Now delete a element to test pop-----"<<endl;
 	A.pop();
 	cout<<"Stack is empty ? : "<<(A.empty()?"Yes":"No")<<endl;//Yes
 	cout<<"Size of Stack is : "<<A.size()<<endl;//0
+	
+	for(int i=0;i<Maxsize;i++)
+		A.push(i+1);
+	cout<<A;
+	Stack B(A);
+	cout<<B;
+	timer=B.size();
+	for(int i=0;i<timer;i++)
+		B.pop();
+	for(int i=0;i<Maxsize;i++)
+		B.push(Maxsize-i);
+	cout<<B;
+	cout<<"----Swap A B----"<<endl;
+	A.swap(B);
+	cout<<A<<B;
 	
 	return 0;
 }
