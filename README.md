@@ -42,3 +42,7 @@ Online Judge
 - [TCGS](http://www.tcgs.tc.edu.tw:1218/)
 - [TIOJ](http://tioj.ck.tp.edu.tw/problems)
 - [CodeForce](http://codeforces.com/)
+
+Git 
+============
+- [Git book](https://git-scm.com/book/zh-tw/v1)
