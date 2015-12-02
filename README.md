@@ -4,6 +4,7 @@
 ===============
 + alias
 + grep
++ chrome 分析工具
 
 Websites
 ========
