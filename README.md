@@ -2,12 +2,12 @@
 
  寒假
 ===============
-+ alias
 + grep
 + chrome 分析工具
 + pipe
 + jobs &
 + cut
++ file permission
 
 Websites
 ========
