@@ -7,6 +7,7 @@
 + chrome 分析工具
 + pipe
 + jobs &
++ cut
 
 Websites
 ========
