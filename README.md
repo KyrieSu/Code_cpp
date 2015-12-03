@@ -5,6 +5,8 @@
 + alias
 + grep
 + chrome 分析工具
++ pipe
++ jobs &
 
 Websites
 ========
