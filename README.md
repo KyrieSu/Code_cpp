@@ -8,6 +8,8 @@
 + jobs &
 + cut
 + file permission
++ bash script
++ makefile
 
 Websites
 ========
