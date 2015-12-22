@@ -10,6 +10,7 @@
 + file permission
 + bash script
 + makefile
++ bash64
 
 Websites
 ========
