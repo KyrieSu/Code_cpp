@@ -11,6 +11,8 @@
 + bash script
 + makefile
 + bash64
++ 位元運算(提高運算效率)
++ linux
 
 Websites
 ========
