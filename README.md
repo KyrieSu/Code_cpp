@@ -10,7 +10,7 @@
 + file permission
 + bash script
 + makefile
-+ bash64
++ base64
 + 位元運算(提高運算效率)
 + linux
 + 字串處理
