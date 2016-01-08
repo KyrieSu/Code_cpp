@@ -16,6 +16,8 @@
 + 字串處理
 + 建圖
 + regular expression
++ awk
++ sed
 
 Websites
 ========
