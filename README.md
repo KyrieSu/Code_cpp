@@ -2,8 +2,8 @@
 
  寒假
 ===============
-++ grep
-+ chrome 分析工具
+### Linux 相關
++ grep
 + pipe
 + jobs &
 + cut
@@ -11,14 +11,17 @@
 + bash script
 + makefile
 + base64
-+ 位元運算(提高運算效率)
-+ linux
-+ 字串處理
-+ 建圖
 + regular expression
 + awk
-+ sed
+
+### 演算法
++ 位元運算(提高運算效率)
++ 字串處理
++ 建圖
 + DP
+
+### 其他
++ chrome 分析工具
 
 Websites
 ========
