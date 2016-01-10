@@ -2,7 +2,7 @@
 
  寒假
 ===============
-### Linux 相關
+### Linux
 + grep
 + pipe
 + jobs &
