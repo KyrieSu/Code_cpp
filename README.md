@@ -18,7 +18,7 @@
 + 位元運算(提高運算效率)
 + 字串處理
 + 建圖
-+ DP
++ DP(Dynamic Programming)
 
 ### 其他
 + chrome 分析工具
