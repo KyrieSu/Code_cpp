@@ -13,6 +13,7 @@
 + base64
 + regular expression
 + awk
++ Hard link VS Symbolic link
 
 ### 演算法
 + 位元運算(提高運算效率)
