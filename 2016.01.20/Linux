@@ -1,0 +1,39 @@
+1/20
+
+Algorithm:
+
+圖:
+adjacency matrix
+adjacency list
+(有時間的話)
+hash
+hash map
+進階 adjacency matrix
+
+字串處理:
+getline
+stringstream
+切字串
+字串數字轉換
+(有時間的話)
+regular expression
+自動機
+
+DP:
+recursive
+dynamic programming
+(有時間的話)
+狀態壓縮
+
+Linux:
+makefile
+cat
+echo
+pipe
+grep
+cut
+jobs &
+file permission
+(有時間的話)
+awk
+xargs
