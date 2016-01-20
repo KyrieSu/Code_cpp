@@ -34,7 +34,7 @@ void bucketSort(int arr[], int size){
 	}
 	
 	int arrIndex = 0;
-	for(int i=0 ; i<bucketSize ; i++){  // O(bucket_size)
+	for(int i=0 ; i<bucketSize ; i++){  // O(bucket_size + size)
 		while(bucket[i] > 0){
 			arr[arrIndex] = i+minVal;
 			arrIndex++;
