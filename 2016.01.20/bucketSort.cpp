@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cstring>
 #include<algorithm>
 using namespace std;
 
@@ -20,25 +19,24 @@ int arrMin(int arr[], int size){
 }
 
 void bucketSort(int arr[], int size){
-	int maxVal;
-	int minVal;
+	int maxVal = arrMax(arr, size);  // 10002 -> 4
+	int minVal = arrMin(arr, size);  // 9998 -> 0
 
-	int bucket[101];  // 1 ~ 100  (101 = N+1)
-	memset(bucket, 0, 101);
+	int bucketSize = maxVal - minVal + 1;
+
+	int bucket[bucketSize];  // 1 ~ 100  (101 = N+1)
+	for(int i=0 ; i<bucketSize ; i++){
+		bucket[i] = 0;
+	}
 
 	for(int i=0 ; i<size ; i++){  // O(size)
-		bucket[arr[i]]++;
+		bucket[arr[i]-minVal]++;
 	}
 	
-	for(int i=0 ; i<101 ; i++)
-		cout << bucket[i] << " ";
-	cout << endl;
-
 	int arrIndex = 0;
-	for(int i=1 ; i<=100 ; i++){  // O(bucket_size)
+	for(int i=0 ; i<bucketSize ; i++){  // O(bucket_size)
 		while(bucket[i] > 0){
-			cout << i << endl;
-			arr[arrIndex] = i;
+			arr[arrIndex] = i+minVal;
 			arrIndex++;
 			bucket[i]--;
 		}
@@ -46,9 +44,18 @@ void bucketSort(int arr[], int size){
 }
 
 int main(){
-	int arr[] = {10, 5, 6, 4, 2, 100, 7, 65, 46, 99, 98, 98};
-	//int arr = {10000, 10001, 10002, 9999, 9998};
+	int arr1[] = {10, 5, 6, 4, 2, 100, 7, 65, 46, 99, 98, 98};
+	int arr2[] = {10000, 10001, 10002, 9999, 9998};
 	// 9998 -> 1
 	// 10002 -> 5
-	bucketSort(arr, sizeof(arr)/sizeof(int));
+	bucketSort(arr1, sizeof(arr1)/sizeof(int));
+	for(int i=0 ; i<sizeof(arr1)/sizeof(int) ; i++)
+		cout << arr1[i] << " ";
+	cout << endl;
+
+
+	bucketSort(arr2, sizeof(arr2)/sizeof(int));
+	for(int i=0 ; i<sizeof(arr2)/sizeof(int) ; i++)
+		cout << arr2[i] << " ";
+	cout << endl;
 }
