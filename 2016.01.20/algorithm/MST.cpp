@@ -4,19 +4,17 @@
 #include <vector>
 #include <stack>
 #include <queue>
+#include <algorithm>
 using namespace std;
 
 typedef vector<pair<int,int> > Graph;
 
-//int set[100];
 void BFS(int,Graph*,int);
 void DFS(int,Graph*,int);
 
 int main(){
     int N; // amount of dots
     cin >> N;
-    /*for(int i=0;i<N;i++)
-        set[i]=i;*/
     Graph *G = new Graph [N]; // weight , vertex
     int begin,end,weight;
     while(cin>>begin>>end>>weight)
