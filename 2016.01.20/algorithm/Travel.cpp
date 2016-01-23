@@ -62,7 +62,7 @@ void DFS(int num,Graph *G,int start){
         start = s.top();
         cout << start << " -> ";
         s.pop();
-        for(int i=0;i<G[start].size();i++){
+        for(int i=G[start].size()-1;i>=0;i--){
             int dot = G[start][i].second;
             if(visited[dot]==false){
                 s.push(dot);
