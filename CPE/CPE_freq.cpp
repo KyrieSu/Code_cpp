@@ -22,10 +22,12 @@ int main(){
         for(int i=0;i<tmp.size();i++)
             m[tmp[i]]++;
         unordered_map<char,int>::iterator ptr;
-        int max = 0;
-        for(ptr=m.begin();ptr!=m.end();ptr++)
-            if(ptr->second > max)
-                max = ptr->second;
+        int max = 0 , count  = 0;
+        for(ptr=m.begin();ptr!=m.end();ptr++){
+            count = ptr->second;
+            if(count > max)
+                max = count;
+        }
         string sol;
         for(ptr=m.begin();ptr!=m.end();ptr++)
             if(ptr->second==max)
