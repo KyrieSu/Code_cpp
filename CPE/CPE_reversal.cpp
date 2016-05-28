@@ -18,8 +18,8 @@ int main(){
 	}
 	for(int i=0;i<max_len;i++){
 		for(int j=0;j<vec.size();j++){
-			if(i > vec[i].size())
-				cout << " ";
+			if(i > vec[j].size())
+				cout << ' ';
 			else
 				cout << vec[j][i];
 		}
