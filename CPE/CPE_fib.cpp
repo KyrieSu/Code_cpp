@@ -19,7 +19,8 @@ int fib(int x){
 }
 
 void inital(){
-    memset(dp,max,-1);
+    for(int i=0;i<max;i++)
+        dp[i] = -1;
     dp[0] = 0;
     dp[1] = 1;
     dp[2] = 1;
@@ -29,18 +30,50 @@ void inital(){
 
 int getindex(int x){
     int i;
-    for(i=0;i<max;i++)
+    for(i=0;i<max;i++){
         if(dp[i] > x)
             break;
+        else if(dp[i]==x)
+            return i;
+        else
+            continue;
+    }
     return i-1;
+}
+
+queue<int> ans(int x,int index){
+    queue<int> data;
+    for(int i=index;i>1;i--){
+        if(x>=dp[i]){
+            x-=dp[i];
+            data.push(1);
+        }
+        else
+            data.push(0);
+    }
+    return data;
+}
+
+void print(int x,queue<int> Q){
+    cout << x << " = " ;
+    if(x==1) cout << 1; //special case // I will write this case in issue#5
+    while(!Q.empty()){
+        cout << Q.front();
+        Q.pop();
+    }
+    cout << " (fib) " << endl;
 }
 
 int main(){
     inital();
-    int x;
-    while(cin >> x){
+    int x, N;
+    queue<int> Q; //store element 0 or 1
+    cin >> N;
+    for(int i=0;i<N;i++){
+        cin >> x;
         int index = getindex(x);
-        cout << index;
+        Q = ans(x,index);
+        print(x,Q);
     }
     return 0;
 }
