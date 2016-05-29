@@ -15,7 +15,6 @@ int fib(int x){
         dp[x] = fib(x-1) + fib(x-2);
         return dp[x];
     }
-    cout << x;
 }
 
 void inital(){
@@ -29,16 +28,12 @@ void inital(){
 }
 
 int getindex(int x){
-    int i;
-    for(i=0;i<max;i++){
+    for(int i=0;i<max;i++){
         if(dp[i] > x)
-            break;
-        else if(dp[i]==x)
+            return i-1;
+        if(dp[i] == x)
             return i;
-        else
-            continue;
     }
-    return i-1;
 }
 
 queue<int> ans(int x,int index){
