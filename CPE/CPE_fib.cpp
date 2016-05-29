@@ -1,6 +1,5 @@
 #include <iostream>
-#include <cstring>
-#include <queue>
+#include <string>
 using namespace std;
 
 #define max 40
@@ -28,7 +27,7 @@ void inital(){
 }
 
 int getindex(int x){
-    for(int i=0;i<max;i++){
+    for(int i=2;i<max;i++){
         if(dp[i] > x)
             return i-1;
         if(dp[i] == x)
@@ -36,39 +35,29 @@ int getindex(int x){
     }
 }
 
-queue<int> ans(int x,int index){
-    queue<int> data;
+string ans(int x,int index){
+    string tmp;
     for(int i=index;i>1;i--){
         if(x>=dp[i]){
             x-=dp[i];
-            data.push(1);
+            tmp+="1";
         }
         else
-            data.push(0);
+            tmp+="0";
     }
-    return data;
+    return tmp;
 }
 
-void print(int x,queue<int> Q){
-    cout << x << " = " ;
-    if(x==1) cout << 1; //special case // I will write this case in issue#5
-    while(!Q.empty()){
-        cout << Q.front();
-        Q.pop();
-    }
-    cout << " (fib) " << endl;
-}
 
 int main(){
     inital();
     int x, N;
-    queue<int> Q; //store element 0 or 1
     cin >> N;
     for(int i=0;i<N;i++){
         cin >> x;
         int index = getindex(x);
-        Q = ans(x,index);
-        print(x,Q);
+        string str = ans(x,index);
+        cout << x << " = " << str << " (fib) " << endl;
     }
     return 0;
 }
