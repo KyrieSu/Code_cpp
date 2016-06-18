@@ -1,12 +1,8 @@
 ## hackpad : https://hackpad.com/Programming-5QRq1QMTzrn
 
- 寒假
+ 暑假
 ===============
 ### Linux
-+ grep
-+ pipe
-+ jobs &
-+ cut
 + file permission
 + bash script
 + makefile
@@ -18,8 +14,7 @@
 ### 演算法
 + 位元運算(提高運算效率)
 + 字串處理
-+ 建圖
-+ DP(Dynamic Programming)
++ 解題
 
 ### 其他
 + chrome 分析工具
