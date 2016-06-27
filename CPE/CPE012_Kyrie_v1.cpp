@@ -2,11 +2,10 @@
 using namespace std;
 
 bool square(int x){
-    for(int i=1;x>0;i = i+2){
+    for(int i=1;x>0;i=i+2)
         x -= i;
-        if(x==0)
-            return true;
-    }
+    if(x==0)
+        return true;
     return false;
 }
 
