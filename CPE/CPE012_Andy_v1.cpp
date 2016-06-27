@@ -3,12 +3,10 @@
 using namespace std;
 int main()
 {
-    int input,i=1;
+    int input;
     cin >> input;
-    while(input > 0){
-        input -= i;
-        i += 2;
-    }
+    for(int i = 1 ; input > 0 ; i+=2)
+		input -= i;
     if(input == 0)
         cout << "true";
     else
