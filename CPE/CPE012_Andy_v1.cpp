@@ -6,9 +6,8 @@ int main()
     int input,i=1;
     cin >> input;
     while(input > 0){
-        if(i%2 != 0)
-            input -= i;
-        i++;
+        input -= i;
+        i += 2;
     }
     if(input == 0)
         cout << "true";
