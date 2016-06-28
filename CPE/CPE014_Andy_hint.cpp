@@ -8,7 +8,7 @@ void sol(int input,vector<int> vec){
   }
   else{
     vec.push_back(input);
-    return sol(input-1,vec);
+    sol(input-1,vec);
   }
 
 }
