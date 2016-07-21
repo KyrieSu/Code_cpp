@@ -5,11 +5,13 @@
 ### Node.js
 + Closure
 + Callback
++ Promise
 
 ### Algorithm
 + RMQ 問題
 + Segment Tree
 + 雙向 BFS
++ 快速冪求費氏數列
 
 ### Git
 + master vs origin/master
