@@ -2,22 +2,18 @@
 
  暑假
 ===============
-### Linux
-+ file permission
-+ bash script
-+ makefile
-+ base64
-+ regular expression
-+ awk
-+ Hard link vs Symbolic link
+### Node.js
++ Closure
++ Callback
 
-### 演算法
-+ 位元運算(提高運算效率)
-+ 字串處理
-+ 解題
+### Algorithm
++ RMQ 問題
++ Segment Tree
 
-### 其他
-+ chrome 分析工具
+### Git
++ master vs origin/master
++ upstream
++ cherry-pick
 
 Websites
 ========
