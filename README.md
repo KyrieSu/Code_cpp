@@ -16,6 +16,7 @@
 
 ### Git
 + master vs origin/master
++ remote
 + upstream
 + cherry-pick
 
