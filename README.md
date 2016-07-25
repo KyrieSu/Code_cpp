@@ -5,7 +5,10 @@
 ### Node.js
 + Closure
 + Callback
++ eval
++ this, bind
 + export, require, common.js
++ arraw function
 + Promise
 
 ### Algorithm
