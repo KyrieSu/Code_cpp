@@ -14,6 +14,7 @@
 ### Algorithm
 + RMQ 問題
 + Segment Tree
++ sparse table
 + 雙向 BFS
 + 快速冪求費氏數列
 
