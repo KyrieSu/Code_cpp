@@ -4,7 +4,7 @@
 ===============
 ### Node.js
 + Closure
-+ Callback
++ Callback, setTimeOut
 + eval
 + this, bind
 + export, require, common.js
