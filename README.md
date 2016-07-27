@@ -1,23 +1,28 @@
 ## hackpad : https://hackpad.com/Programming-5QRq1QMTzrn
 
- 暑假
+2016 暑假
 ===============
-### Linux
-+ file permission
-+ bash script
-+ makefile
-+ base64
-+ regular expression
-+ awk
-+ Hard link vs Symbolic link
+### Node.js
++ Closure
++ Callback, setTimeOut
++ eval
++ this, bind
++ export, require, common.js
++ arraw function
++ Promise
 
-### 演算法
-+ 位元運算(提高運算效率)
-+ 字串處理
-+ 解題
+### Algorithm
++ RMQ 問題
++ Segment Tree
++ sparse table
++ 雙向 BFS
++ 快速冪求費氏數列
 
-### 其他
-+ chrome 分析工具
+### Git
++ master vs origin/master
++ remote
++ upstream
++ cherry-pick
 
 Websites
 ========
