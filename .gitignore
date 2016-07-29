@@ -1,3 +1,5 @@
+*.in
 *.out
 *.exe
+*.ot
 .DS_Store
