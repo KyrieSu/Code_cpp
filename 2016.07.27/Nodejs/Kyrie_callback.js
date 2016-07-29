@@ -1,17 +1,18 @@
 var fs = require('fs');
 var readline = require('readline');
 
-var count = 1;
+var counter = 0;
 //callback(err,line)
 function countLine(filename,callback){
     var lineReader = readline.createInterface({
         input: fs.createReadStream(filename)
     });
     lineReader.on('line', function(line){
-        callback(line);
+        counter++;
     });
+    callback(counter);
 };
 
 countLine('data',function(line){
-    console.log(count++);
+    console.log(line);
 });
