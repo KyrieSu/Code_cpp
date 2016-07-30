@@ -12,7 +12,7 @@ function countLine(filename,i,callback){
         counter++;
     });
     lineReader.on('close',function(){ // get ^c || ^D
-        console.log('EOF');
+        //console.log('EOF');
         callback(i,counter);
     });
 };
@@ -31,7 +31,7 @@ function finish(callback){
     var ans = [];
     for(var i=0;i<arr.length;i++){
         countLine(arr[i],i,function(index,line){
-            arr[index] = line;
+            ans[index] = line;
             if(finialcheck(ans))
                 callback(ans);
         });
