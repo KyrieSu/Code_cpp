@@ -17,17 +17,28 @@ function countLine(filename,callback){
     });
 };
 
+function finalcheck(ans,callback){
+    if(ans.length!=arr.length)
+        callback('fail');
+    for(var i = 0;i<ans.length;i++)
+        if(ans[i]==undefined)
+            callback('fail');
+    callback('success');
+}
+
 function finish(callback){
     var ans = [];
     for(var i=0;i<arr.length;i++){
         countLine(arr[i],function(line){
-            ans.push(line);
-            if(ans.length==arr.length)
-                callback(ans);
+            ans[i] = line;
+            finalcheck(ans,function(msg){
+                if(msg==='success')
+                    callback(ans);
+            })
         });
     }
 };
 
 finish(function(ans){
     console.log(ans);
-});
+})
