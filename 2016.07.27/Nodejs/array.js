@@ -3,7 +3,7 @@ var readline = require('readline');
 
 var arr = ['test_hw2.ot','test_hw2_3a.ot','test_hw2_discard.ot','test_hw2_unsafe.ot']; // test data
 
-function countLine(filename,i,callback){
+function countLine(filename,callback){
     var counter = 0;
     var lineReader = readline.createInterface({
         input: fs.createReadStream(filename)
@@ -13,11 +13,11 @@ function countLine(filename,i,callback){
     });
     lineReader.on('close',function(){ // get ^c || ^D
         //console.log('EOF');
-        callback(i,counter);
+        callback(counter);
     });
 };
 
-function finialcheck(ans){
+/*function finialcheck(ans){
     if(ans.length!=arr.length)
         return false;
     for(var i=0;i<ans.length;i++){
@@ -25,14 +25,14 @@ function finialcheck(ans){
             return false;
     }
     return true;
-}
+}*/
 
 function finish(callback){
-    var ans = [];
+    var ans = [] , index = 0;
     for(var i=0;i<arr.length;i++){
-        countLine(arr[i],i,function(index,line){
-            ans[index] = line;
-            if(finialcheck(ans))
+        countLine(arr[i],function(line){
+            ans[index++] = line;
+            if(index==arr.length)
                 callback(ans);
         });
     }
