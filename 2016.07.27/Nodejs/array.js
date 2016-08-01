@@ -17,22 +17,18 @@ function countLine(filename,callback){
     });
 };
 
-/*function finialcheck(ans){
-    if(ans.length!=arr.length)
-        return false;
-    for(var i=0;i<ans.length;i++){
-        if(ans[i]==undefined)
-            return false;
-    }
-    return true;
-}*/
+function fun2(index,file,callback){
+    countLine(file,function(line){
+        callback(index,line);
+    });
+}
 
 function finish(callback){
-    var ans = [] , index = 0;
+    var ans = [];
     for(var i=0;i<arr.length;i++){
-        countLine(arr[i],function(line){
-            ans[index++] = line;
-            if(index==arr.length)
+        fun2(i,arr[i],function(index,line){
+            ans[index] = line;
+            if(index == arr.length-1)
                 callback(ans);
         });
     }
