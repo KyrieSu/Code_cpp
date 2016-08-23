@@ -5,8 +5,10 @@ int main(){
   int input,result,lost;
   double num;
   cin >> input;
-  num = sqrt(input * 2) + 0.5;
-  result = static_cast<int>(num);
+  num = sqrt(input * 2);
+  if(num - floor(num) >= 0.5)
+    num++;
+  result = int(num);
   lost = (result * (result + 1)) / 2 - input;
   if(lost == 0) {
     result++;
