@@ -15,13 +15,11 @@ int main(){
             vec[i].push_back(0);
         }
     }
-    int start;
-    cout << "Enter start : " ; 
+    int start; 
     cin >> start;
     int x,y,weight;
     while(cin >> x >> y >> weight){
         vec[x][y] = weight;
-        vec[y][x] = weight;
     }
     Dijkstra(vec,start);
     return 0;
@@ -29,6 +27,37 @@ int main(){
 
 void Dijkstra(Array2D& v,int start =0){
     int N = v.size();
-    vector<int> dis(N,-1);
-    vector<bool> dot(N,false);
+    vector<int> dis(N,0);
+    dis[start] = 0;
+    for(int i=0;i<N;i++){
+        for(int j=0;j<v[i].size();j++){
+            if(v[i][j]==0){
+                continue;
+            }else{
+                if(dis[j]==0){
+                    dis[j] = v[i][j];
+                }else{
+                    if( (dis[j]+v[i][j])<dis[j] ){
+                        dis[j] = dis[j]+v[i][j];
+                    }
+                }
+            }
+        }
+    }
+    for (int i=0;i<N;i++)
+        cout << dis[i] <<endl;
 }
+
+/* 
+test data 
+5 0
+0 1 6
+0 2 7
+1 3 5
+1 2 8
+2 4 9
+3 1 -2
+2 3 -3
+4 3 7
+4 0 2
+*/
