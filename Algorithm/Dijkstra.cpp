@@ -1,3 +1,4 @@
+/* Ref by https://zh.wikipedia.org/wiki/戴克斯特拉算法 */
 #include <iostream>
 #include <cstring>
 #include <queue>
@@ -17,47 +18,58 @@ int main(){
     }
     int start; 
     cin >> start;
+    start -= 1;
     int x,y,weight;
     while(cin >> x >> y >> weight){
-        vec[x][y] = weight;
+        vec[x-1][y-1] = weight;
+        vec[y-1][x-1] = weight;
     }
     Dijkstra(vec,start);
     return 0;
 }
 
-void Dijkstra(Array2D& v,int start =0){
+void Dijkstra(Array2D& v,int start=0){
     int N = v.size();
-    vector<int> dis(N,0);
+    vector<int> dis(N,10000);
+    vector<bool> dot(N,false);
+    queue<int> q;
+    // initial algorithm status
+    q.push(start);
+    dot[start] = true;
     dis[start] = 0;
-    for(int i=0;i<N;i++){
-        for(int j=0;j<v[i].size();j++){
-            if(v[i][j]==0){
-                continue;
-            }else{
-                if(dis[j]==0){
-                    dis[j] = v[i][j];
-                }else{
-                    if( (dis[j]+v[i][j])<dis[j] ){
-                        dis[j] = dis[j]+v[i][j];
-                    }
+    // start travel by BFS
+    int index;
+    while(!q.empty()){
+        index = q.front();
+        cout << index << endl;
+        q.pop();
+        for(int i=0;i<v[index].size();i++){
+            if(v[index][i]==0)continue;
+            if(dot[i]==false){
+                q.push(i);
+                dot[i] = true;
+                dis[i] = dis[index] + v[index][i];
+            }else{ //check which path is shorter
+                int tmp = dis[index] + v[index][i];
+                if(dis[i]>tmp){
+                    dis[i] = tmp;
                 }
             }
         }
     }
     for (int i=0;i<N;i++)
-        cout << dis[i] <<endl;
+        cout << dis[i] << ' ' ;
 }
 
-/* 
-test data 
-5 0
-0 1 6
-0 2 7
-1 3 5
-1 2 8
-2 4 9
-3 1 -2
-2 3 -3
-4 3 7
-4 0 2
+/* test data 
+6 3
+1 2 7
+1 3 9
+1 6 14
+2 3 10
+2 4 15
+3 4 11
+3 6 2
+5 6 9
+4 5 6
 */
