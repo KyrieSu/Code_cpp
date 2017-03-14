@@ -30,18 +30,16 @@ int main(){
 
 void Dijkstra(Array2D& v,int start=0){
     int N = v.size();
-    vector<int> dis(N,10000);
+    vector<int> dis(N,0);
     vector<bool> dot(N,false);
     queue<int> q;
     // initial algorithm status
     q.push(start);
     dot[start] = true;
-    dis[start] = 0;
     // start travel by BFS
     int index;
     while(!q.empty()){
         index = q.front();
-        cout << index << endl;
         q.pop();
         for(int i=0;i<v[index].size();i++){
             if(v[index][i]==0)continue;
