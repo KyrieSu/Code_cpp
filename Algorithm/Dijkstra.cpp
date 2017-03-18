@@ -1,13 +1,14 @@
 /* Ref by https://zh.wikipedia.org/wiki/戴克斯特拉算法 */
 #include <iostream>
 #include <queue>
+#include <set>
 using namespace std;
 
 typedef vector<vector<int> > Array2D;
 int Dijkstra(Array2D&,int,int);
-int myfind(int);
 
 vector<int> roots;
+vector<int> road;
 
 int main(){
     int N; //number of dots
@@ -32,17 +33,9 @@ int main(){
     return 0;
 }
 
-int myfind(int index){ //maybe bug here
-    if(roots[index]==index || roots[index]==-1){ //original or not visited
-        return roots[index];
-    }else{ // search which node I come from untill find original
-        return myfind(roots[index]);
-    }
-}
 
 int Dijkstra(Array2D& v,int src=0,int dst=0){
     int N = v.size();
-    vector<int> roots(N,-1);
     vector<int> dis(N,0); // the distance from source to destination
     vector<bool> dot(N,false);
     queue<int> q;
@@ -71,9 +64,18 @@ int Dijkstra(Array2D& v,int src=0,int dst=0){
             }
         }
     }
-    // for (int i=0;i<N;i++)
-    //     cout << dis[i] << ' ' ;
     cout << "from " << src+1 << " to " << dst+1 << " : " << dis[dst] << endl;
+    cur = dst;
+    while(cur!=src){
+        if(dot[cur]==false) 
+            break;
+        road.push_back(cur+1);
+        cur = roots[cur];
+    }
+    road.push_back(src+1);
+    for(int i=0;i<road.size();i++)
+        cout << road[i] << " -> ";
+    cout << endl;
     return dis[dst];
 }
 
