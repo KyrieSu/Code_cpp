@@ -17,21 +17,18 @@ int main(){
         }else{
             v = v2-v1;
         }
-        r/=2;
-        int x = gcd(r*v1,v);
-        if(r*v1%v!=0){
-            int top = r*v1/x;
+        int c = r/2;
+        int x = gcd(c*v1,v);
+        if(c*v1%v!=0){
+            int top = c*v1/x;
             int btm = v/x;
-            if(v1<0){
-                top = 400*btm - top;
+            if(btm<0){
+                top *=-1;
+                btm *=-1;
             }
-            cout << abs(top) << "/" << btm << endl;
+            cout << top << "/" << btm << endl;
         }else{
-            int y = r*v1/v;
-            if(v1<0){
-                y -= 400-y;
-            }
-            cout << abs(y) << endl;
+            cout << c*v1/v << endl;
         }
     }
     return 0;
