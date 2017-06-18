@@ -1,5 +1,4 @@
 #include <iostream>
-#include <algorithm>
 #include <cmath>
 using namespace std;
 
@@ -25,11 +24,17 @@ int main(){
             if(v1<0){
                 top = r*btm-abs(top);
             }
-            cout << top << "/" << btm << endl;
+            if(top==0){
+                cout << "0" << endl;
+            }else{
+                cout << top << "/" << btm << endl;
+            }
         }else{
             int d1 = c*v1/v;
             if(v1>0){
                 cout << d1 << endl;
+            }else if(v1==0){
+                cout << "0" << endl;
             }else{
                 cout << r-d1 << endl;
             }
