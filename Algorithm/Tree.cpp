@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
-#include<cstdlib>
-#include<ctime>
+#include <cstdlib>
+#include <ctime>
 #include <stack>
 #include <queue>
 using namespace std;
@@ -69,6 +69,31 @@ void invertTree(TreeNode *root){
     invertTree(root->right);
 }
 
+TreeNode* find(TreeNode *root,int value){
+    TreeNode *ptr = root;
+    while(ptr!=NULL){
+        if(ptr->val==value){
+            return ptr;
+        }else if(ptr->val > value){
+            ptr = ptr->right;
+        }else{
+            ptr = ptr->left;
+        }
+    }
+    return ptr;
+}
+
+TreeNode* find_recursive(TreeNode *root, int value){
+    if(root==NULL)
+        return NULL;
+    else if(root->val==value)
+        return root;
+    else{
+        TreeNode *tmp = find_recursive(root->left,value);
+        return tmp ? tmp:find_recursive(root->right,value);
+    }
+}
+
 int main(){
     TreeNode *myTree = NULL;
     // random element
@@ -87,5 +112,12 @@ int main(){
     cout << "BFS : " ; BFS(myTree); cout << endl;
     cout << "DFS : " ; DFS(myTree); cout << endl;
     cout << "DFS_recursive : " ; DFS_recursive(myTree); cout << endl;
+    cout << "Enter a number you want to search in BST :";
+    cin >> v;
+    if(find_recursive(myTree,v)!=NULL){
+        cout << "Find " << endl;
+    }else{
+        cout << "Not Find" << endl;
+    }
     return 0;
 }
