@@ -84,15 +84,18 @@ TreeNode* find(TreeNode *root,int value){
 }
 
 TreeNode* find_recursive(TreeNode *root, int value){
+    TreeNode *tmp = NULL;
     if(root==NULL)
         return NULL;
     else if(root->val==value)
         return root;
     else if(value > root->val){
-        return find_recursive(root->right,value)? root->right:NULL; 
+        tmp = find_recursive(root->right,value);
+        return tmp? tmp:find_recursive(root->right,value); 
     }
     else{
-        return find_recursive(root->left,value)? root->left:NULL;
+        tmp = find_recursive(root->left,value);
+        return tmp? tmp:find_recursive(root->left,value);
     }
 }
 
@@ -110,13 +113,13 @@ int main(){
     cout << "BFS : " ; BFS(myTree); cout << endl;
     cout << "DFS : " ; DFS(myTree); cout << endl;
     cout << "DFS_recursive : " ; DFS_recursive(myTree); cout << endl;
-    cout << "**** invert tree ****" << endl; invertTree(myTree);
-    cout << "BFS : " ; BFS(myTree); cout << endl;
-    cout << "DFS : " ; DFS(myTree); cout << endl;
-    cout << "DFS_recursive : " ; DFS_recursive(myTree); cout << endl;
+    //cout << "**** invert tree ****" << endl; invertTree(myTree);
+    //cout << "BFS : " ; BFS(myTree); cout << endl;
+    //cout << "DFS : " ; DFS(myTree); cout << endl;
+    //cout << "DFS_recursive : " ; DFS_recursive(myTree); cout << endl;
     cout << "Enter a number you want to search in BST :";
     cin >> v;
-    if(find(myTree,v)!=NULL){
+    if(find_recursive(myTree,v)!=NULL){
         cout << "Find " << endl;
     }else{
         cout << "Not Find" << endl;
