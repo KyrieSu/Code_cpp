@@ -73,8 +73,8 @@ TreeNode* find(TreeNode *root,int value){
     TreeNode *ptr = root;
     while(ptr!=NULL){
         if(ptr->val==value){
-            return ptr;
-        }else if(ptr->val > value){
+            break;
+        }else if(value > ptr->val){
             ptr = ptr->right;
         }else{
             ptr = ptr->left;
@@ -88,9 +88,11 @@ TreeNode* find_recursive(TreeNode *root, int value){
         return NULL;
     else if(root->val==value)
         return root;
+    else if(value > root->val){
+        return find_recursive(root->right,value)? root->right:NULL; 
+    }
     else{
-        TreeNode *tmp = find_recursive(root->left,value);
-        return tmp ? tmp:find_recursive(root->right,value);
+        return find_recursive(root->left,value)? root->left:NULL;
     }
 }
 
@@ -114,7 +116,7 @@ int main(){
     cout << "DFS_recursive : " ; DFS_recursive(myTree); cout << endl;
     cout << "Enter a number you want to search in BST :";
     cin >> v;
-    if(find_recursive(myTree,v)!=NULL){
+    if(find(myTree,v)!=NULL){
         cout << "Find " << endl;
     }else{
         cout << "Not Find" << endl;
